@@ -23,7 +23,7 @@
         ctx.scale(scale,scale)
         async function paintIds(){
             const path0=`${comment?'c':''}ids${start}`
-            const res=await fetch(`https://ddu6.ml/services/ph-get/local/${path0}`)
+            const res=await fetch(`https://ddu6.xyz/services/ph-get/local/${path0}`)
             if(!res.ok)return false
             const json=await res.json()
             start=start*num
