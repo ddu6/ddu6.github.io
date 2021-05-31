@@ -1,5 +1,5 @@
 const script=document.createElement('script')
-script.src='https://cdn.jsdelivr.net/gh/ddu6/st@0.1.1/dist/reader.js'
+script.src='https://cdn.jsdelivr.net/gh/ddu6/st@0.1.2/dist/reader.js'
 const current=document.currentScript
 if(current instanceof HTMLScriptElement){
     const src=current.dataset.src
