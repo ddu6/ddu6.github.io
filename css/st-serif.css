@@ -1,0 +1,5 @@
+.st-root{
+    --font:katexPatch,stSansExtend,KaTeX_Main,'Times New Roman',SimSun,serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+    --font-mono:roboto-mono-regular,'Times New Roman',SimSun,monospace,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    --font-katex:katexPatch,KaTeX_Main,'Times New Roman',SimSun,serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+}
