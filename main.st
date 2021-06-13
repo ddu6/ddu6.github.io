@@ -10,5 +10,5 @@
 {name'Reader'href'./st/reader'card[]}
 {name'Manual'href'./st/manual'card[]}
 []
-{level 2,label'2'heading[PKU Hole]}
+{level 1,label'2'heading[PKU Hole]}
 {name'viewer'href'./ph'card[]}
