@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<head>
-    <link rel="manifest" href="manifest.webmanifest">
-</head>
-<body style="background:black"></body>
-<script src="https://cdn.jsdelivr.net/gh/ddu6/ph-view@0.22.8/dist/main.js"></script>
-<script>
-    if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./sw.js')
-    }
-</script>
+<html style="background:black">
+    <head>
+        <link rel="manifest" href="manifest.webmanifest">
+    </head>
+    <body>
+        <script src="https://cdn.jsdelivr.net/gh/ddu6/ph-view@0.22.9/dist/main.js"></script>
+        <script>
+            if('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('./sw.js')
+            }
+        </script>
+    </body>
+</html>
