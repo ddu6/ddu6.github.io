@@ -1,0 +1,11 @@
+{logo []}
+{title [DDU]}
+{css-src main.css, global []}
+{id connect, orbit heading, h2 [Connect]}
+{dl [
+    {dt [Github]}
+    {dd [{href https://github.com/ddu6, a [ddu6]}]}
+    {dt [Email]}
+    {dd [{href mailto:ddu6@protonmail.com, a [ddu6@protonmail.com]}]}
+]}
+[]
