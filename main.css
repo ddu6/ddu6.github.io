@@ -1,5 +1,5 @@
 .logo {
-    margin: var(--length-tab);
     background: center / contain no-repeat url('imgs/ddu.png');
-    height: 8em;
+    height: 150px;
+    margin: var(--length-tab);
 }

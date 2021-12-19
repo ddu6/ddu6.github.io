@@ -1,5 +1,7 @@
-{logo []}
-{title [DDU]}
+{title [
+    {logo []}
+    DDU
+]}
 {css-src main.css, global []}
 {h1 [Connect]}
 {dt [Github]}
