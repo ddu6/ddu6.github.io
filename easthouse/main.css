@@ -1,9 +1,5 @@
 @import url(css/root.css);
 
-body {
-    overflow-y: hidden;
-}
-
 header {
     align-items: center;
     background: rgb(255 255 255 / .5);
@@ -37,6 +33,8 @@ header>.button {
 main {
     --color-light: gray;
     display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 main>div {
