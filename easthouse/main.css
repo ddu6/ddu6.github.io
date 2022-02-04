@@ -33,8 +33,6 @@ header>.button {
 main {
     --color-light: gray;
     display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
 }
 
 main>div {
