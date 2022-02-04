@@ -1,5 +1,5 @@
 .logo {
-    background: center / contain no-repeat url('imgs/ddu.png');
+    background: center / contain no-repeat url(imgs/ddu.png);
     height: 5em;
     margin: var(--length-padding) 0;
 }
