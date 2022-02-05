@@ -169,11 +169,6 @@ main h1+.desc {
     font-weight: bold;
 }
 
-main img.big {
-    max-height: 100%;
-    max-width: 50vw;
-}
-
 main>:first-child {
     animation-duration: 1s;
     animation-name: zoom;
@@ -212,6 +207,11 @@ main>:first-child h1 {
 
 #products .details {
     margin: 2em 0;
+}
+
+#products img {
+    max-height: 100%;
+    max-width: 50vw;
 }
 
 #strength {
@@ -267,6 +267,30 @@ main>:first-child h1 {
     color: var(--color-light);
 }
 
+@keyframes gray {
+    to {
+        background: darkgray;
+        color: whitesmoke;
+    }
+}
+
+@keyframes rgray {
+    from {
+        background: darkgray;
+        color: whitesmoke;
+    }
+}
+
+#history {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-name: rgray;
+}
+
+#history.gray {
+    animation-name: gray;
+}
+
 #history h2 {
     font-size: 1.8em;
     margin: .5em 0;
@@ -292,9 +316,13 @@ main>:first-child h1 {
     width: .4px;
 }
 
-#history .path>div {
+#history .path>:not(svg) {
     padding-bottom: 2em;
     position: absolute;
+    max-width: 15em;
+}
+
+#history .path>div {
     width: 15em;
 }
 
@@ -373,6 +401,7 @@ footer {
     left: 0;
     letter-spacing: .5em;
     padding: 0 4em;
+    padding-top: 4em;
     position: fixed;
     width: 100vw;
 }

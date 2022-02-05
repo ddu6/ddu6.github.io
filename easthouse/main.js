@@ -105,7 +105,13 @@ main.addEventListener('scroll', () => {
             tab.style.opacity = '1'
             line.style.background = `linear-gradient(to right, goldenrod ${percent}%, lightgray ${percent}%)`
             if (i === 3) {
+                const part = main.children[i]
                 rect.setAttribute('width', `${rightPercent}%`)
+                if (rightPercent < 50) {
+                    part.classList.remove('gray')
+                } else {
+                    part.classList.add('gray')
+                }
             }
             continue
         }
