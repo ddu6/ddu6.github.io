@@ -53,13 +53,19 @@ addEventListener('click', e => {
             break
         }
         e.preventDefault()
+        for (const part of main.children) {
+            part.classList.add('fade')
+        }
         if (href.length === 1) {
-            main.children[0].scrollIntoView({behavior: 'smooth', inline: 'start'})
+            const part = main.children[0]
+            part.classList.remove('fade')
+            part.scrollIntoView({behavior: 'smooth', inline: 'start'})
             break
         }
         const id = decodeURIComponent(href.slice(1))
         const result = document.body.querySelector(`[id=${JSON.stringify(id)}]`)
         if (result !== null) {
+            result.classList.remove('fade')
             result.scrollIntoView({behavior: 'smooth', inline: 'start'})
         }
         break
