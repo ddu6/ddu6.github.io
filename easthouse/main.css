@@ -101,14 +101,42 @@ header form>textarea {
     margin-bottom: 1.5em;
 }
 
+@keyframes fade {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes rfade {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes zoom {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes rzoom {
+    to {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+}
+
 main {
     --color-light: gray;
     overflow-x: auto;
     display: flex;
 }
 
-main>div {
+main>* {
     align-items: center;
+    animation-duration: 2s;
+    animation-name: rfade;
     box-sizing: border-box;
     display: flex;
     flex-shrink: 0;
@@ -118,7 +146,11 @@ main>div {
     padding: 0 2em;
 }
 
-main>div>div {
+main>.fade {
+    animation-name: fade;
+}
+
+main>*>div {
     padding: 0 2em;
 }
 
@@ -143,7 +175,13 @@ main img.big {
 }
 
 main>:first-child {
+    animation-duration: 1s;
+    animation-name: zoom;
     background: center / cover no-repeat url(imgs/main.jpg);
+}
+
+main>:first-child.fade {
+    animation-name: rzoom;
 }
 
 main>:first-child h1 {
@@ -325,6 +363,7 @@ footer {
     align-items: center;
     animation-duration: 1s;
     animation-fill-mode: both;
+    animation-name: rfooter;
     bottom: 0;
     box-sizing: border-box;
     color: transparent;
@@ -340,10 +379,6 @@ footer {
 
 footer:hover {
     animation-name: footer;
-}
-
-footer:not(:hover) {
-    animation-name: rfooter;
 }
 
 footer>* {

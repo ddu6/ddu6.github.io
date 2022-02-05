@@ -19,6 +19,10 @@ main.addEventListener('wheel', async e => {
             || delta < 0 && right > 0 && right < visualViewport.width
         ) {
             scrolling = true
+            for (const part of main.children) {
+                part.classList.add('fade')
+            }
+            part.classList.remove('fade')
             part.scrollIntoView({behavior: 'smooth', inline: 'start'})
             while (true) {
                 await new Promise(r => setTimeout(r, 100))
