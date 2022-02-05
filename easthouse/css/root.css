@@ -55,6 +55,7 @@ html[data-font-size=large] {
 html {
     font-family: sans-serif;
     line-height: 1.5;
+    overflow: hidden;
 }
 
 body {
