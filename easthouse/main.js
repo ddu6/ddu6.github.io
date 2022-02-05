@@ -26,6 +26,9 @@ consult.addEventListener('click', e => {
     e.stopPropagation()
     form.style.display = 'flex'
 })
+for (let i = 1; i < main.children.length; i++) {
+    main.children[i].classList.add('fade')
+}
 addEventListener('click', e => {
     form.style.display = 'none'
     // fix #
