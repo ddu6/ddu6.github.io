@@ -3,36 +3,21 @@ const form = document.querySelector('form')
 const main = document.querySelector('main')
 const rect = document.querySelector('#history-rect')
 const footer = document.querySelector('footer')
-let scrolling = false
-main.addEventListener('wheel', async e => {
+main.addEventListener('wheel', e => {
     e.preventDefault()
-    if (scrolling) {
-        return
-    }
     const delta = e.deltaX + e.deltaY
     main.scrollBy(delta, 0)
     for (let i = 0; i < main.children.length; i++) {
         const part = main.children[i]
         const {left, right} = part.getBoundingClientRect()
         if (
-            delta > 0 && left > 0 && left < visualViewport.width
-            || delta < 0 && right > 0 && right < visualViewport.width
+            delta > 0 && left > 0 && left < visualViewport.width / 2
+            || delta < 0 && right > visualViewport.width / 2 && right < visualViewport.width
         ) {
-            scrolling = true
             for (const part of main.children) {
                 part.classList.add('fade')
             }
             part.classList.remove('fade')
-            part.scrollIntoView({behavior: 'smooth', inline: 'start'})
-            while (true) {
-                await new Promise(r => setTimeout(r, 100))
-                const {left} = part.getBoundingClientRect()
-                if (delta > 0 && left < 1 || delta < 0 && left > -1) {
-                    break
-                }
-            }
-            await new Promise(r => setTimeout(r, 500))
-            scrolling = false
             return
         }
     }
@@ -53,11 +38,11 @@ addEventListener('click', e => {
             break
         }
         e.preventDefault()
-        for (const part of main.children) {
-            part.classList.add('fade')
-        }
         if (href.length === 1) {
             const part = main.children[0]
+            for (const part of main.children) {
+                part.classList.add('fade')
+            }
             part.classList.remove('fade')
             part.scrollIntoView({behavior: 'smooth', inline: 'start'})
             break
@@ -65,6 +50,9 @@ addEventListener('click', e => {
         const id = decodeURIComponent(href.slice(1))
         const result = document.body.querySelector(`[id=${JSON.stringify(id)}]`)
         if (result !== null) {
+            for (const part of main.children) {
+                part.classList.add('fade')
+            }
             result.classList.remove('fade')
             result.scrollIntoView({behavior: 'smooth', inline: 'start'})
         }

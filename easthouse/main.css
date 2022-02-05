@@ -130,12 +130,14 @@ header form>textarea {
 main {
     --color-light: gray;
     overflow-x: auto;
+    overflow-y: hidden;
     display: flex;
 }
 
 main>* {
     align-items: center;
     animation-duration: 2s;
+    animation-fill-mode: both;
     animation-name: rfade;
     box-sizing: border-box;
     display: flex;
@@ -281,13 +283,13 @@ main>:first-child h1 {
     }
 }
 
-#history {
+#history:not(.fade) {
     animation-duration: 1s;
     animation-fill-mode: both;
     animation-name: rgray;
 }
 
-#history.gray {
+#history:not(.fade).gray {
     animation-name: gray;
 }
 
@@ -304,8 +306,13 @@ main>:first-child h1 {
 
 #history .path>svg>path {
     fill: none;
+    stroke: lightgray;
     stroke-dasharray: .15 .3;
     stroke-width: .15;
+}
+
+#history .path>svg>path:last-of-type {
+    stroke: seagreen;
 }
 
 #history .path>svg>rect {
