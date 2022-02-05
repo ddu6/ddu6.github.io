@@ -267,12 +267,12 @@ main>:first-child h1 {
 
 @keyframes footer {
     50% {
-        padding-bottom: 1em;
+        padding-bottom: 1.5em;
     }
 
     to {
         color: lightgray;
-        padding-bottom: 1em;
+        padding-bottom: 1.5em;
     }
 }
 
@@ -299,13 +299,10 @@ footer:hover {
 }
 
 footer>* {
-    border-top: solid 1px lightgray;
     flex-grow: 1;
-    opacity: .5;
-    padding-top: .5em;
     text-align: center;
 }
 
 footer>:hover {
-    opacity: 1;
+    opacity: 1 !important;
 }
