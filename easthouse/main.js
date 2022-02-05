@@ -2,9 +2,38 @@ const consult = document.querySelector('#consult')
 const form = document.querySelector('form')
 const main = document.querySelector('main')
 const footer = document.querySelector('footer')
-main.addEventListener('wheel', e => {
+let scrolling = false
+main.addEventListener('wheel', async e => {
     e.preventDefault()
-    main.scrollBy(e.deltaX + e.deltaY, 0)
+    if (scrolling) {
+        return
+    }
+    const delta = e.deltaX + e.deltaY
+    main.scrollBy(delta, 0)
+    for (let i = 0; i < main.children.length; i++) {
+        const part = main.children[i]
+        const {left, right} = part.getBoundingClientRect()
+        if (
+            delta > 0 && left > 0 && left < visualViewport.width
+            || delta < 0 && right > 0 && right < visualViewport.width
+        ) {
+            if (scrolling) {
+                return
+            }
+            scrolling = true
+            part.scrollIntoView({behavior: 'smooth', inline: 'start'})
+            while (true) {
+                await new Promise(r => setTimeout(r, 100))
+                const {left} = part.getBoundingClientRect()
+                if (delta > 0 && left < 1 || delta < 0 && left > -1) {
+                    break
+                }
+            }
+            await new Promise(r => setTimeout(r, 500))
+            scrolling = false
+            return
+        }
+    }
 }, {passive: false})
 consult.addEventListener('click', e => {
     e.stopPropagation()
