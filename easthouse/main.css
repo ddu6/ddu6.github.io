@@ -266,13 +266,13 @@ main>:first-child h1 {
 }
 
 @keyframes footer {
-    25% {
-        padding-bottom: .5em;
+    50% {
+        padding-bottom: 1em;
     }
 
     to {
         color: lightgray;
-        padding-bottom: .5em;
+        padding-bottom: 1em;
     }
 }
 
@@ -282,11 +282,12 @@ footer {
     box-sizing: border-box;
     color: transparent;
     display: flex;
-    gap: .5em 1em;
+    font-size: .8em;
+    gap: 2em;
     justify-content: space-between;
     left: 0;
     letter-spacing: .5em;
-    padding: 0 1em;
+    padding: 0 2em;
     position: fixed;
     width: 100vw;
 }
