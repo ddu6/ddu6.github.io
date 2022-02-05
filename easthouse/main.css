@@ -222,11 +222,42 @@ main>:first-child h1 {
 
 #strength h2 {
     font-size: 1em;
+    margin: 1em 0;
 }
 
 #strength .details {
     color: var(--color-light);
-    margin: 1em 0;
+}
+
+#history h2 {
+    font-size: 1.8em;
+    margin: .5em 0;
+}
+
+#history .path {
+    padding: 0;
+    position: relative;
+    margin-right: 20em;
+}
+
+#history .path>svg>path {
+    fill: none;
+    stroke-dasharray: .15 .3;
+    stroke-width: .15;
+}
+
+#history .path>svg>rect {
+    fill: white;
+    height: .4px;
+    stroke: seagreen;
+    stroke-width: .1;
+    width: .4px;
+}
+
+#history .path>div {
+    padding-bottom: 2em;
+    position: absolute;
+    width: 15em;
 }
 
 #partners>div:last-child {

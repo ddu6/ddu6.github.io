@@ -1,6 +1,7 @@
 const consult = document.querySelector('#consult')
 const form = document.querySelector('form')
 const main = document.querySelector('main')
+const rect = document.querySelector('#history-rect')
 const footer = document.querySelector('footer')
 let scrolling = false
 main.addEventListener('wheel', async e => {
@@ -47,7 +48,6 @@ addEventListener('click', e => {
         if (href === null || !href.startsWith('#')) {
             break
         }
-        e.stopPropagation()
         e.preventDefault()
         if (href.length === 1) {
             main.children[0].scrollIntoView({behavior: 'smooth', inline: 'start'})
@@ -77,6 +77,7 @@ for (let i = 0; i < footer.children.length; i++) {
 main.addEventListener('scroll', () => {
     let index = 0
     let percent = 100
+    let rightPercent = 0
     for (let i = 0; i < main.children.length; i++) {
         const part = main.children[i]
         const {left, width} = part.getBoundingClientRect()
@@ -84,7 +85,8 @@ main.addEventListener('scroll', () => {
             break
         }
         index = i
-        percent = 100 * Math.min(1, (visualViewport.width - left) / width)
+        percent = 100 * (visualViewport.width - left) / width
+        rightPercent = Math.max(0, -100 * left / (width - visualViewport.width))
     }
     for (let i = 0; i < footer.children.length; i++) {
         const tab = footer.children[i]
@@ -92,6 +94,9 @@ main.addEventListener('scroll', () => {
         if (i === index) {
             tab.style.opacity = '1'
             line.style.background = `linear-gradient(to right, goldenrod ${percent}%, lightgray ${percent}%)`
+            if (i === 3) {
+                rect.setAttribute('width', `${rightPercent}%`)
+            }
             continue
         }
         tab.style.opacity = '.5'
