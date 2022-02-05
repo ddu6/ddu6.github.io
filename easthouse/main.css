@@ -51,11 +51,11 @@ header {
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
-    gap: .5em 1em;
+    gap: 1em 4em;
     justify-content: flex-end;
     left: 0;
     min-height: 4em;
-    padding: 1em 2em;
+    padding: 1em 4em;
     position: fixed;
     top: 0;
     width: 100vw;
@@ -109,11 +109,13 @@ main {
 
 main>div {
     align-items: center;
+    box-sizing: border-box;
     display: flex;
     flex-shrink: 0;
     height: 100vh;
     justify-content: space-between;
     min-width: 100vw;
+    padding: 2em;
 }
 
 main>div>div {
@@ -276,30 +278,45 @@ main>:first-child h1 {
     }
 }
 
+@keyframes rfooter {
+    from {
+        color: lightgray;
+        padding-bottom: 1.5em;
+    }
+
+    50% {
+        padding-bottom: 1.5em;
+    }
+}
+
 footer {
     align-items: center;
+    animation-duration: 1s;
+    animation-fill-mode: both;
     bottom: 0;
     box-sizing: border-box;
     color: transparent;
     display: flex;
-    font-size: .8em;
-    gap: 2em;
+    gap: 1em 4em;
     justify-content: space-between;
     left: 0;
     letter-spacing: .5em;
-    padding: 0 2em;
+    padding: 0 4em;
     position: fixed;
     width: 100vw;
 }
 
 footer:hover {
-    animation-duration: 1s;
-    animation-fill-mode: both;
     animation-name: footer;
+}
+
+footer:not(:hover) {
+    animation-name: rfooter;
 }
 
 footer>* {
     flex-grow: 1;
+    font-size: .8em;
     text-align: center;
 }
 

@@ -9,17 +9,13 @@ main.addEventListener('wheel', async e => {
         return
     }
     const delta = e.deltaX + e.deltaY
-    main.scrollBy(delta, 0)
     for (let i = 0; i < main.children.length; i++) {
         const part = main.children[i]
         const {left, right} = part.getBoundingClientRect()
         if (
-            delta > 0 && left > 0 && left < visualViewport.width
-            || delta < 0 && right > 0 && right < visualViewport.width
+            delta > 0 && left > 0 && left < visualViewport.width + 1
+            || delta < 0 && right > -1 && right < visualViewport.width
         ) {
-            if (scrolling) {
-                return
-            }
             scrolling = true
             part.scrollIntoView({behavior: 'smooth', inline: 'start'})
             while (true) {
@@ -34,6 +30,7 @@ main.addEventListener('wheel', async e => {
             return
         }
     }
+    main.scrollBy(delta, 0)
 }, {passive: false})
 consult.addEventListener('click', e => {
     e.stopPropagation()
