@@ -19,7 +19,7 @@
 }
 
 #tel::before {
-    content: url(icons/tel.svg);
+    content: url(../icons/tel.svg);
     left: 0;
     position: absolute;
     top: 0;

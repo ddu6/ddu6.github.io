@@ -70,6 +70,8 @@ function update() {
         line.style.background = 'lightgray'
     }
 }
-update()
+setTimeout(() => {
+    update()
+}, 100)
 main.addEventListener('scroll', update)
 main.addEventListener('touchmove', update)
