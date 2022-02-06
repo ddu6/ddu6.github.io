@@ -112,5 +112,7 @@ addEventListener('resize', () => {
     const std = Math.round(main.scrollLeft / visualViewport.width) * visualViewport.width
     if (Math.abs(std - main.scrollLeft) > 1) {
         main.scrollLeft = std
+    } else {
+        update()
     }
 })
