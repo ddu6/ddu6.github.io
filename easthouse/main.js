@@ -109,7 +109,7 @@ setTimeout(() => {
 }, 100)
 main.addEventListener('scroll', update)
 main.addEventListener('touchmove', update)
-// fix resize window
+// fix after resize window
 let lastScrollLeft = 0
 setInterval(() => {
     if (main.scrollLeft !== lastScrollLeft) {
@@ -120,4 +120,4 @@ setInterval(() => {
     if (Math.abs(std - main.scrollLeft) > 1) {
         main.scrollLeft = std
     }
-}, 500);
+}, 500)
