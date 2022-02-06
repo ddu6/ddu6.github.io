@@ -144,7 +144,7 @@
     font-size: 1em;
     font-weight: normal;
     margin: 2em 0;
-    padding-bottom: 2em;
+    padding-bottom: 1em;
 }
 
 #history h3::after {
