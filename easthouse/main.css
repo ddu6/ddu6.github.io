@@ -1,5 +1,7 @@
 @import url(css/root.css);
 
+@import url(css/point.css);
+
 a,
 a:hover {
     color: inherit;
@@ -115,14 +117,12 @@ header form>textarea {
 
 @keyframes zoom {
     from {
-        opacity: 0;
         transform: scale(1.2);
     }
 }
 
 @keyframes rzoom {
     to {
-        opacity: 0;
         transform: scale(1.2);
     }
 }
@@ -146,6 +146,7 @@ main>* {
     justify-content: space-between;
     min-width: 100vw;
     padding: 0 2em;
+    position: relative;
 }
 
 main>.fade {
@@ -171,13 +172,37 @@ main h1+.desc {
     font-weight: bold;
 }
 
-main>:first-child {
-    animation-duration: 1s;
-    animation-name: zoom;
-    background: center / cover no-repeat url(imgs/main.jpg);
+main .background {
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    left: 0;
+    padding: 0 2em;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
-main>:first-child.fade {
+main .background>div {
+    padding: 0 2em;
+}
+
+main>:first-child {
+    width: 100vw;
+    overflow: hidden;
+}
+
+main>:first-child>* {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-name: zoom;
+}
+
+main>:first-child.fade>* {
     animation-name: rzoom;
 }
 
@@ -283,14 +308,22 @@ main>:first-child h1 {
     }
 }
 
-#history:not(.fade) {
+#history {
     animation-duration: 1s;
     animation-fill-mode: both;
-    animation-name: rgray;
+    animation-name: rfade, rgray;
 }
 
-#history:not(.fade).gray {
-    animation-name: gray;
+#history.fade {
+    animation-name: fade, rgray;
+}
+
+#history.gray {
+    animation-name: rfade, gray;
+}
+
+#history.fade.gray {
+    animation-name: fade, gray;
 }
 
 #history h2 {
@@ -326,6 +359,14 @@ main>:first-child h1 {
 #history .path>:not(svg) {
     padding-bottom: 2em;
     position: absolute;
+}
+
+#history .path>a {
+    align-items: center;
+    display: flex;
+}
+
+#history img {
     max-width: 15em;
 }
 
