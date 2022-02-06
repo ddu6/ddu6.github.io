@@ -13,7 +13,9 @@ for (let i = 0; i < main.children.length; i++) {
     part.addEventListener('wheel', e => {
         e.preventDefault()
         const delta = e.deltaX + e.deltaY
-        part.scrollBy(delta, 0)
+        if (i !== 0) {
+            part.scrollBy(delta, 0)
+        }
     }, {passive: false})
     part.addEventListener('scroll', update)
     part.addEventListener('touchmove', update)
@@ -56,10 +58,14 @@ function update() {
         const line = tab.children[0]
         const {left, right} = part.getBoundingClientRect()
         if (left <= visualViewport.width / 2 && right >= visualViewport.width / 2) {
-            const percent = 100 * (visualViewport.width + part.scrollLeft) / part.scrollWidth
-            const rightPercent = Math.max(0, 100 * part.scrollLeft / (part.scrollWidth - visualViewport.width))
             part.classList.remove('fade')
             tab.style.opacity = '1'
+            if (i === 0) {
+                line.style.background = 'goldenrod'
+                continue
+            }
+            const percent = 100 * (visualViewport.width + part.scrollLeft) / part.scrollWidth
+            const rightPercent = Math.max(0, 100 * part.scrollLeft / (part.scrollWidth - visualViewport.width))
             line.style.background = `linear-gradient(to right, goldenrod ${percent}%, lightgray ${percent}%)`
             if (i === 3) {
                 rect.setAttribute('width', `${rightPercent}%`)
@@ -79,8 +85,5 @@ function update() {
 setTimeout(() => {
     update()
 }, 100)
-setTimeout(() => {
-    update()
-}, 1000)
 main.addEventListener('scroll', update)
 main.addEventListener('touchmove', update)
