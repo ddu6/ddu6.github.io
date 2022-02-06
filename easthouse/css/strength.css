@@ -14,35 +14,35 @@
 }
 
 #strength .grid>:nth-child(1)::before {
-    content: url(icons/g1.svg);
+    content: url(../icons/g1.svg);
 }
 
 #strength .grid>:nth-child(2)::before {
-    content: url(icons/g2.svg);
+    content: url(../icons/g2.svg);
 }
 
 #strength .grid>:nth-child(3)::before {
-    content: url(icons/g3.svg);
+    content: url(../icons/g3.svg);
 }
 
 #strength .grid>:nth-child(4)::before {
-    content: url(icons/g4.svg);
+    content: url(../icons/g4.svg);
 }
 
 #strength .grid>:nth-child(5)::before {
-    content: url(icons/g5.svg);
+    content: url(../icons/g5.svg);
 }
 
 #strength .grid>:nth-child(6)::before {
-    content: url(icons/g6.svg);
+    content: url(../icons/g6.svg);
 }
 
 #strength .grid>:nth-child(7)::before {
-    content: url(icons/g7.svg);
+    content: url(../icons/g7.svg);
 }
 
 #strength .grid>:nth-child(8)::before {
-    content: url(icons/g8.svg);
+    content: url(../icons/g8.svg);
 }
 
 #strength h2 {
