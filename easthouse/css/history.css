@@ -1,0 +1,79 @@
+@keyframes gray {
+    to {
+        background: darkgray;
+        color: whitesmoke;
+    }
+}
+
+@keyframes rgray {
+    from {
+        background: darkgray;
+        color: whitesmoke;
+    }
+}
+
+#history {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-name: rfade, rgray;
+}
+
+#history.fade {
+    animation-name: fade, rgray;
+}
+
+#history.gray {
+    animation-name: rfade, gray;
+}
+
+#history.fade.gray {
+    animation-name: fade, gray;
+}
+
+#history .path {
+    padding: 0;
+    position: relative;
+    margin-right: 20em;
+}
+
+#history .path>svg>path {
+    fill: none;
+    stroke: lightgray;
+    stroke-dasharray: .15 .3;
+    stroke-width: .15;
+}
+
+#history .path>svg>path:last-of-type {
+    stroke: seagreen;
+}
+
+#history .path>svg>rect {
+    fill: white;
+    height: .4px;
+    stroke: seagreen;
+    stroke-width: .1;
+    width: .4px;
+}
+
+#history .path>:not(svg) {
+    padding-bottom: 2em;
+    position: absolute;
+}
+
+#history .path>a {
+    align-items: center;
+    display: flex;
+}
+
+#history img {
+    max-width: 15em;
+}
+
+#history .path>div {
+    width: 15em;
+}
+
+#history h2 {
+    font-size: 1.8em;
+    margin: .5em 0;
+}

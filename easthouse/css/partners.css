@@ -1,0 +1,37 @@
+#partners>div:last-child {
+    background: seagreen;
+    box-sizing: border-box;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
+    margin-right: -2em;
+    padding: 4em;
+    text-align: right;
+}
+
+#tel {
+    border-bottom: solid 1px goldenrod;
+    padding-bottom: 1em;
+    margin-bottom: 3em;
+    position: relative;
+}
+
+#tel::before {
+    content: url(icons/tel.svg);
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 3em;
+}
+
+#tel>:first-child {
+    color: gainsboro;
+    font-size: .8em;
+}
+
+#icp {
+    color: gainsboro;
+    margin: 1em 0;
+}

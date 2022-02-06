@@ -1,0 +1,30 @@
+@keyframes zoom {
+    from {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes rzoom {
+    to {
+        transform: scale(1.2);
+    }
+}
+
+main>:first-child {
+    width: 100vw;
+    overflow: hidden;
+}
+
+main>:first-child>* {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-name: zoom;
+}
+
+main>:first-child.fade>* {
+    animation-name: rzoom;
+}
+
+main>:first-child h1 {
+    color: seagreen;
+}

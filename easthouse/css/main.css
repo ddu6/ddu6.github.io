@@ -1,0 +1,74 @@
+@keyframes fade {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes rfade {
+    from {
+        opacity: 0;
+    }
+}
+
+main {
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+}
+
+main>* {
+    align-items: center;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    animation-name: rfade;
+    box-sizing: border-box;
+    display: flex;
+    flex-shrink: 0;
+    height: 100vh;
+    justify-content: space-between;
+    min-width: 100vw;
+    padding: 0 2em;
+    position: relative;
+}
+
+main>.fade {
+    animation-name: fade;
+}
+
+main>*>div {
+    padding: 0 2em;
+}
+
+main h1 {
+    border-bottom: solid 2px goldenrod;
+    color: gray;
+    font-size: 1em;
+    font-weight: normal;
+    letter-spacing: 2em;
+    margin: 1em 0;
+    padding: .5em 0;
+}
+
+main h1+.desc {
+    font-size: 2.8em;
+    font-weight: bold;
+}
+
+main .background {
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    left: 0;
+    padding: 0 2em;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+main .background>div {
+    padding: 0 2em;
+}

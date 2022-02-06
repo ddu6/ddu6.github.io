@@ -1,0 +1,55 @@
+header {
+    align-items: center;
+    background: rgb(255 255 255 / .5);
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em 4em;
+    justify-content: flex-end;
+    left: 0;
+    min-height: 4em;
+    padding: 1em 4em;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+}
+
+header>:first-child {
+    flex-grow: 1;
+}
+
+header>:first-child img {
+    height: 2em;
+}
+
+header .button {
+    background: seagreen;
+}
+
+header .tel {
+    color: seagreen;
+}
+
+header form {
+    background: white;
+    border-left: solid 1px lightgray;
+    bottom: 0;
+    display: none;
+    flex-direction: column;
+    gap: .5em;
+    min-width: 18em;
+    padding: 4em;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+header form>* {
+    display: block;
+}
+
+header form>textarea {
+    flex-grow: 1;
+    margin-bottom: 1.5em;
+}

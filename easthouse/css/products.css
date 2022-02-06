@@ -1,0 +1,30 @@
+#products h2 {
+    border-bottom: solid 2px goldenrod;
+    font-size: 2.1em;
+    letter-spacing: .5em;
+    margin: .5em 0;
+    padding: .5em 0;
+}
+
+#products h2>div:last-child::after {
+    background: goldenrod;
+    content: "";
+    display: inline-block;
+    height: .3em;
+    margin-left: .5em;
+    width: .3em;
+}
+
+#products h2+.desc {
+    color: gray;
+    letter-spacing: 1em;
+}
+
+#products .details {
+    margin: 2em 0;
+}
+
+#products img {
+    max-height: 100%;
+    max-width: 50vw;
+}
