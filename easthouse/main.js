@@ -44,8 +44,10 @@ consult.addEventListener('click', e => {
     form.classList.add('show')
 })
 addEventListener('click', e => {
-    form.classList.remove('show')
-    form.classList.add('hide')
+    if (form.classList.contains('show')) {
+        form.classList.remove('show')
+        form.classList.add('hide')
+    }
     // fix #
     for (const target of e.composedPath()) {
         if (!(target instanceof HTMLAnchorElement)) {
