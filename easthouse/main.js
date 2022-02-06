@@ -73,7 +73,6 @@ addEventListener('click', e => {
         break
     }
 })
-let currentIndex = 0
 function update() {
     for (let i = 0; i < main.children.length; i++) {
         const part = main.children[i]
@@ -81,7 +80,6 @@ function update() {
         const line = tab.children[0]
         const {left, right} = part.getBoundingClientRect()
         if (left <= visualViewport.width / 2 && right >= visualViewport.width / 2) {
-            currentIndex = i
             part.classList.remove('fade')
             tab.style.opacity = '1'
             if (i === 0) {
@@ -109,15 +107,10 @@ function update() {
 setTimeout(() => {
     update()
 }, 100)
-// fix after resize window
-let lastScrollLeft = 0
-setInterval(() => {
-    if (main.scrollLeft !== lastScrollLeft) {
-        lastScrollLeft = main.scrollLeft
-        return
-    }
-    const std = currentIndex * visualViewport.width
+main.addEventListener('scroll', update)
+addEventListener('resize', () => {
+    const std = Math.round(main.scrollLeft / visualViewport.width) * visualViewport.width
     if (Math.abs(std - main.scrollLeft) > 1) {
         main.scrollLeft = std
     }
-}, 500)
+})
