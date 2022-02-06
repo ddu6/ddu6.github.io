@@ -11,9 +11,8 @@
 }
 
 main {
-    overflow-x: auto;
-    overflow-y: hidden;
     display: flex;
+    overflow: hidden;
 }
 
 main>* {
@@ -26,13 +25,20 @@ main>* {
     flex-shrink: 0;
     height: 100vh;
     justify-content: space-between;
-    min-width: 100vw;
+    overflow-x: auto;
+    overflow-y: hidden;
     padding: 0 2em;
     position: relative;
+    scrollbar-width: none;
+    width: 100vw;
 }
 
 main>.fade {
     animation-name: fade;
+}
+
+main>*>* {
+    flex-shrink: 0;
 }
 
 main>*>div {
