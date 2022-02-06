@@ -27,3 +27,7 @@
 #products img {
     max-width: 50vw;
 }
+
+#products>:last-child {
+    margin-right: 20em;
+}

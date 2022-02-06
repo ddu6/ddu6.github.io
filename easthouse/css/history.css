@@ -31,7 +31,7 @@
 #history .path {
     padding: 0;
     position: relative;
-    margin-right: 20em;
+    margin-right: 40em;
 }
 
 #history .path>svg>path {
@@ -103,7 +103,7 @@
     background: white;
     color: black;
     display: none;
-    grid-template-columns: 34vw 26vw;
+    grid-template-columns: 33.8vw 26.2vw;
     height: 30vw;
     left: 20vw;
     position: fixed;
