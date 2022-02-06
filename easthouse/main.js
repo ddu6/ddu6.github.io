@@ -3,6 +3,7 @@ const form = document.querySelector('form')
 const main = document.querySelector('main')
 const rect = document.querySelector('#history-rect')
 const footer = document.querySelector('footer')
+let rest = false
 for (let i = 0; i < main.children.length; i++) {
     const part = main.children[i]
     const tab = footer.children[i]
@@ -12,9 +13,26 @@ for (let i = 0; i < main.children.length; i++) {
     line.style.marginBottom = '.5em'
     part.addEventListener('wheel', e => {
         e.preventDefault()
+        if (rest) {
+            return
+        }
         const delta = e.deltaX + e.deltaY
         if (i !== 0) {
             part.scrollBy(delta, 0)
+            if (delta < -10 && part.scrollLeft < 1) {
+                rest = true
+                footer.children[i - 1].click()
+                setTimeout(() => {
+                    rest = false
+                }, 1000)
+            }
+        }
+        if (i !== main.children.length - 1 && delta > 10 && part.scrollLeft + visualViewport.width > part.scrollWidth - 1) {
+            rest = true
+            footer.children[i + 1].click()
+            setTimeout(() => {
+                rest = false
+            }, 1000)
         }
     }, {passive: false})
     part.addEventListener('scroll', update)
