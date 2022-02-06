@@ -7,7 +7,6 @@ header {
     gap: 1em 4em;
     justify-content: flex-end;
     left: 0;
-    min-height: 4em;
     padding: 1em 4em;
     position: fixed;
     top: 0;
@@ -31,25 +30,62 @@ header .tel {
     color: seagreen;
 }
 
+@keyframes form {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        right: 0;
+    }
+}
+
+@keyframes rform {
+    from {
+        right: 0;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
 header form {
+    animation-duration: .5s;
+    animation-fill-mode: both;
     background: white;
     border-left: solid 1px lightgray;
     bottom: 0;
-    display: none;
+    box-sizing: border-box;
+    display: flex;
     flex-direction: column;
     gap: .5em;
-    min-width: 18em;
+    width: 28em;
     padding: 4em;
     position: fixed;
-    right: 0;
+    right: -28em;
     top: 0;
+}
+
+header form.show {
+    animation-name: form;
+}
+
+header form.hide {
+    animation-name: rform;
 }
 
 header form>* {
     display: block;
 }
 
+header form>:first-child {
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-bottom: 1em;
+}
+
 header form>textarea {
     flex-grow: 1;
-    margin-bottom: 1.5em;
+    margin-bottom: 2em;
 }

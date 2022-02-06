@@ -40,10 +40,12 @@ for (let i = 0; i < main.children.length; i++) {
 }
 consult.addEventListener('click', e => {
     e.stopPropagation()
-    form.style.display = 'flex'
+    form.classList.remove('hide')
+    form.classList.add('show')
 })
 addEventListener('click', e => {
-    form.style.display = 'none'
+    form.classList.remove('show')
+    form.classList.add('hide')
     // fix #
     for (const target of e.composedPath()) {
         if (!(target instanceof HTMLAnchorElement)) {
