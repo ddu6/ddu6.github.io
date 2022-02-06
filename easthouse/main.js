@@ -109,8 +109,6 @@ function update() {
 setTimeout(() => {
     update()
 }, 100)
-main.addEventListener('scroll', update)
-main.addEventListener('touchmove', update)
 // fix after resize window
 let lastScrollLeft = 0
 setInterval(() => {
