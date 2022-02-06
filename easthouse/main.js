@@ -56,8 +56,8 @@ function update() {
         const line = tab.children[0]
         const {left, right} = part.getBoundingClientRect()
         if (left <= visualViewport.width / 2 && right >= visualViewport.width / 2) {
-            const percent = 100 * (visualViewport.width - part.scrollLeft) / part.scrollWidth
-            const rightPercent = Math.max(0, -100 * part.scrollLeft / (part.scrollWidth - visualViewport.width))
+            const percent = 100 * (visualViewport.width + part.scrollLeft) / part.scrollWidth
+            const rightPercent = Math.max(0, 100 * part.scrollLeft / (part.scrollWidth - visualViewport.width))
             part.classList.remove('fade')
             tab.style.opacity = '1'
             line.style.background = `linear-gradient(to right, goldenrod ${percent}%, lightgray ${percent}%)`
