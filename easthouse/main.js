@@ -3,6 +3,9 @@ const form = document.querySelector('form')
 const main = document.querySelector('main')
 const rect = document.querySelector('#history-rect')
 const footer = document.querySelector('footer')
+for (let i = 1; i < main.children.length; i++) {
+    main.children[i].classList.add('fade')
+}
 main.addEventListener('wheel', e => {
     e.preventDefault()
     const delta = e.deltaX + e.deltaY
@@ -26,9 +29,6 @@ consult.addEventListener('click', e => {
     e.stopPropagation()
     form.style.display = 'flex'
 })
-for (let i = 1; i < main.children.length; i++) {
-    main.children[i].classList.add('fade')
-}
 addEventListener('click', e => {
     form.style.display = 'none'
     // fix #
