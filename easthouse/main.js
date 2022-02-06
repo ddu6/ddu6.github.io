@@ -109,3 +109,15 @@ setTimeout(() => {
 }, 100)
 main.addEventListener('scroll', update)
 main.addEventListener('touchmove', update)
+// fix resize window
+let lastScrollLeft = 0
+setInterval(() => {
+    if (main.scrollLeft !== lastScrollLeft) {
+        lastScrollLeft = main.scrollLeft
+        return
+    }
+    const std = Math.round(main.scrollLeft / visualViewport.width) * visualViewport.width
+    if (Math.abs(std - main.scrollLeft) > 1) {
+        main.scrollLeft = std
+    }
+}, 500);
