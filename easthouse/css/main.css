@@ -17,7 +17,7 @@ main {
 
 main>* {
     align-items: center;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-fill-mode: both;
     animation-name: rfade;
     box-sizing: border-box;

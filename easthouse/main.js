@@ -1,6 +1,8 @@
 const consult = document.querySelector('#consult')
 const form = document.querySelector('form')
 const main = document.querySelector('main')
+const strength = document.querySelector('#strength')
+const grid = document.querySelector('#strength-grid')
 const rect = document.querySelector('#history-rect')
 const footer = document.querySelector('footer')
 let rest = false
@@ -115,4 +117,10 @@ addEventListener('resize', () => {
     } else {
         update()
     }
+})
+grid.addEventListener('pointerover', () => {
+    strength.classList.add('dark')
+})
+grid.addEventListener('pointerout', () => {
+    strength.classList.remove('dark')
 })
