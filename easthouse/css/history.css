@@ -72,6 +72,7 @@
 }
 
 #history img {
+    max-height: 15em;
     max-width: 15em;
 }
 
@@ -102,7 +103,7 @@
     background: white;
     color: black;
     display: none;
-    grid-template-columns: 35vw 25vw;
+    grid-template-columns: 34vw 26vw;
     height: 30vw;
     left: 20vw;
     position: fixed;
