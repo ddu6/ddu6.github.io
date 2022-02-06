@@ -46,7 +46,7 @@ main>*>div {
 }
 
 main h1 {
-    border-bottom: solid 2px goldenrod;
+    border-bottom: 2px solid goldenrod;
     color: gray;
     font-size: 1em;
     font-weight: normal;

@@ -54,7 +54,7 @@ header form {
     animation-duration: .5s;
     animation-fill-mode: both;
     background: white;
-    border-left: solid 1px lightgray;
+    border-left: 1px solid lightgray;
     bottom: 0;
     box-sizing: border-box;
     display: flex;

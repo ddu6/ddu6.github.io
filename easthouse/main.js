@@ -3,17 +3,28 @@ const form = document.querySelector('form')
 const main = document.querySelector('main')
 const strength = document.querySelector('#strength')
 const grid = document.querySelector('#strength-grid')
+const summarys = document.querySelectorAll('#history .summary')
 const rect = document.querySelector('#history-rect')
 const footer = document.querySelector('footer')
 let rest = false
 for (let i = 0; i < main.children.length; i++) {
     const part = main.children[i]
-    const tab = footer.children[i]
+    const tab = document.createElement('a')
     const line = document.createElement('div')
-    tab.prepend(line)
+    tab.href = `#${encodeURIComponent(part.id)}`
+    tab.textContent = part.querySelector('h1').textContent
     line.style.height = '1px'
     line.style.marginBottom = '.5em'
+    footer.append(tab)
+    tab.prepend(line)
     part.addEventListener('wheel', e => {
+        if (i === 3) {
+            for (const target of e.composedPath()) {
+                if (target instanceof HTMLElement && target.classList.contains('container')) {
+                    return
+                }
+            }
+        }
         e.preventDefault()
         if (rest) {
             return
@@ -40,6 +51,30 @@ for (let i = 0; i < main.children.length; i++) {
     part.addEventListener('scroll', update)
     part.addEventListener('touchmove', update)
 }
+for (const summary of summarys) {
+    const point = summary.querySelector('.point')
+    const cover = document.createElement('div')
+    const container = summary.querySelector('.container')
+    const close = document.createElement('img')
+    cover.classList.add('cover')
+    close.src = new URL('icons/close.svg', import.meta.url).href
+    point.append(document.createElement('div'))
+    point.append(document.createElement('div'))
+    point.append(document.createElement('div'))
+    point.append(document.createElement('div'))
+    container.before(cover)
+    container.children[1].prepend(close)
+    const remove = e => {
+        e.stopPropagation()
+        summary.classList.remove('show')
+    }
+    cover.addEventListener('click', remove)
+    close.addEventListener('click', remove)
+    summary.addEventListener('click', e => {
+        e.stopPropagation()
+        summary.classList.add('show')
+    })
+}
 consult.addEventListener('click', e => {
     e.stopPropagation()
     form.classList.remove('hide')
@@ -49,6 +84,9 @@ addEventListener('click', e => {
     if (form.classList.contains('show')) {
         form.classList.remove('show')
         form.classList.add('hide')
+    }
+    for (const summary of summarys) {
+        summary.classList.remove('show')
     }
     // fix #
     for (const target of e.composedPath()) {

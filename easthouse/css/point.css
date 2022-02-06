@@ -21,7 +21,7 @@
     animation-duration: .75s;
     animation-iteration-count: infinite;
     animation-name: point;
-    border: solid 1px lightgray;
+    border: 1px solid lightgray;
     height: 1em;
     left: 1.5em;
     width: 1em;

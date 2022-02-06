@@ -58,20 +58,97 @@
     position: absolute;
 }
 
-#history .path>a {
+#history .path>:not(svg):not(.summary) {
+    width: 15em;
+}
+
+#history .path>.summary {
     align-items: center;
     display: flex;
+}
+
+#history .path>.summary>:not(.cover):not(.container) {
+    cursor: pointer;
 }
 
 #history img {
     max-width: 15em;
 }
 
-#history .path>div {
-    width: 15em;
-}
-
 #history h2 {
     font-size: 1.8em;
     margin: .5em 0;
+}
+
+#history .cover {
+    background: black;
+    bottom: 0;
+    display: none;
+    left: 0;
+    opacity: .75;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+#history .summary.show .cover {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-name: rfade;
+    display: block;
+}
+
+#history .container {
+    background: white;
+    color: black;
+    display: none;
+    grid-template-columns: 35vw 25vw;
+    height: 30vw;
+    left: 20vw;
+    position: fixed;
+    top: calc(50vh - 15vw);
+    width: 60vw;
+    z-index: 1;
+}
+
+#history .summary.show .container {
+    display: grid;
+}
+
+#history .container>:first-child {
+    overflow: hidden;
+    position: relative;
+}
+
+#history .summary.show .container>:first-child>* {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-name: zoom;
+}
+
+#history .container>:last-child {
+    overflow: auto;
+    padding: 2em;
+}
+
+#history .container>:last-child>img {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+}
+
+#history h3 {
+    border-bottom: 1px solid goldenrod;
+    color: gray;
+    font-size: 1em;
+    font-weight: normal;
+    margin: 2em 0;
+    padding-bottom: 2em;
+}
+
+#history h3::after {
+    color: seagreen;
+    content: "EASTHOUSE";
+    display: block;
+    font-size: 1.8em;
 }
