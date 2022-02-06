@@ -28,6 +28,18 @@
     animation-name: fade, dark;
 }
 
+#strength h1,
+#strength .desc {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-name: rfade;
+}
+
+#strength.dark h1,
+#strength.dark .desc {
+    animation-name: fade;
+}
+
 #strength h1 {
     color: gainsboro;
 }
