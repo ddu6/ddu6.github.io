@@ -24,6 +24,7 @@ header>:first-child img {
 
 header .button {
     background: seagreen;
+    padding: .5em 2em;
 }
 
 header .tel {
