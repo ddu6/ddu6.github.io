@@ -11,6 +11,7 @@
 }
 
 main {
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -66,12 +67,12 @@ main .background {
 
 @keyframes zoom {
     from {
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
 }
 
 @keyframes rzoom {
     to {
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
 }

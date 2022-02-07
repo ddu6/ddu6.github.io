@@ -5,6 +5,11 @@ const grid = document.querySelector('#strength-grid')
 const summarys = document.querySelectorAll('#history .summary')
 const rect = document.querySelector('#history-rect')
 const footer = document.querySelector('footer')
+consult.addEventListener('click', e => {
+    e.stopPropagation()
+    consult.classList.remove('hide')
+    consult.classList.add('show')
+})
 let rest = false
 for (let i = 0; i < main.children.length; i++) {
     const part = main.children[i]
@@ -50,6 +55,12 @@ for (let i = 0; i < main.children.length; i++) {
     part.addEventListener('scroll', update)
     part.addEventListener('touchmove', update)
 }
+grid.addEventListener('pointerover', () => {
+    strength.classList.add('dark')
+})
+grid.addEventListener('pointerout', () => {
+    strength.classList.remove('dark')
+})
 for (const summary of summarys) {
     const point = summary.querySelector('.point')
     const cover = document.createElement('div')
@@ -74,11 +85,6 @@ for (const summary of summarys) {
         summary.classList.add('show')
     })
 }
-consult.addEventListener('click', e => {
-    e.stopPropagation()
-    consult.classList.remove('hide')
-    consult.classList.add('show')
-})
 addEventListener('click', e => {
     if (consult.classList.contains('show')) {
         consult.classList.remove('show')
@@ -145,7 +151,7 @@ function update() {
 }
 setTimeout(() => {
     update()
-}, 100)
+}, 500)
 main.addEventListener('scroll', update)
 addEventListener('resize', () => {
     const std = Math.round(main.scrollLeft / visualViewport.width) * visualViewport.width
@@ -154,10 +160,4 @@ addEventListener('resize', () => {
     } else {
         update()
     }
-})
-grid.addEventListener('pointerover', () => {
-    strength.classList.add('dark')
-})
-grid.addEventListener('pointerout', () => {
-    strength.classList.remove('dark')
 })
