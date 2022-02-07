@@ -66,7 +66,6 @@ moreCross.addEventListener('click', e => {
     e.preventDefault()
     more.classList.remove('show')
 })
-const hs = []
 let rest = false
 for (let i = 0; i < main.children.length; i++) {
     const part = main.children[i]
@@ -74,7 +73,6 @@ for (let i = 0; i < main.children.length; i++) {
     const tab = document.createElement('a')
     tab.href = `#${encodeURIComponent(part.id)}`
     tab.textContent = h.textContent
-    hs.push(h)
     footer.append(tab)
     part.addEventListener('wheel', e => {
         if (i === 2) {
@@ -108,6 +106,12 @@ for (let i = 0; i < main.children.length; i++) {
     part.addEventListener('scroll', update)
     part.addEventListener('touchmove', update)
     h.addEventListener('click', e => {
+        for (const target of e.composedPath()) {
+            if (target === footer) {
+                h.classList.remove('show')
+                return
+            }
+        }
         e.stopPropagation()
         e.preventDefault()
         h.classList.toggle('show')
@@ -150,12 +154,6 @@ for (const summary of summarys) {
         summary.classList.add('show')
     })
 }
-footer.addEventListener('click', e => {
-    e.stopPropagation()
-    for (const h of hs) {
-        h.classList.remove('show')
-    }
-})
 function update() {
     for (let i = 0; i < main.children.length; i++) {
         const part = main.children[i]
@@ -163,7 +161,6 @@ function update() {
         const {top, bottom} = part.getBoundingClientRect()
         if (top <= visualViewport.height / 2 && bottom >= visualViewport.height / 2) {
             part.classList.remove('fade')
-            tab.style.opacity = '1'
             tab.style.color = 'seagreen'
             if (i === 2) {
                 const {height} = path.getBoundingClientRect()
@@ -173,7 +170,6 @@ function update() {
             continue
         }
         part.classList.add('fade')
-        tab.style.opacity = '.5'
         tab.style.color = 'lightgray'
     }
 }

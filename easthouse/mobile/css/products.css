@@ -24,7 +24,7 @@
     margin: 2em 0;
 }
 
-#products a {
+#products .container a {
     color: seagreen;
     font-size: 1.3em;
     font-weight: bold;
