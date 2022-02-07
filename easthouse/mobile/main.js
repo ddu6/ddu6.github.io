@@ -70,20 +70,7 @@ for (let i = 0; i < main.children.length; i++) {
     tab.href = `#${encodeURIComponent(part.id)}`
     tab.textContent = h.textContent
     footer.append(tab)
-    part.addEventListener('wheel', e => {
-        if (i === 2) {
-            for (const target of e.composedPath()) {
-                if (target instanceof HTMLElement && target.classList.contains('container')) {
-                    return
-                }
-            }
-        }
-        e.preventDefault()
-        if (rest) {
-            return
-        }
-        const delta = e.deltaX + e.deltaY
-        part.scrollBy(0, delta)
+    function handleDelta(delta) {
         if (i !== 0 && delta < -10 && part.scrollTop < 1) {
             rest = true
             footer.children[i - 1].click()
@@ -98,9 +85,44 @@ for (let i = 0; i < main.children.length; i++) {
                 rest = false
             }, 1000)
         }
+    }
+    part.addEventListener('wheel', e => {
+        if (i === 2) {
+            for (const target of e.composedPath()) {
+                if (target instanceof HTMLElement && target.classList.contains('container')) {
+                    return
+                }
+            }
+        }
+        e.preventDefault()
+        if (rest) {
+            return
+        }
+        const delta = e.deltaX + e.deltaY
+        part.scrollBy(0, delta)
+        handleDelta(delta)
     }, {passive: false})
     part.addEventListener('scroll', update)
-    part.addEventListener('touchmove', update)
+    let start
+    part.addEventListener('touchstart', e => {
+        if (e.targetTouches.length > 0) {
+            const touch = e.targetTouches[0]
+            start = touch.clientX + touch.clientY
+        }
+        fix()
+    })
+    part.addEventListener('touchmove', e => {
+        if (start === undefined || e.targetTouches.length === 0) {
+            return
+        }
+        update()
+        if (rest) {
+            return
+        }
+        const touch = e.targetTouches[0]
+        handleDelta(start - touch.clientX - touch.clientY)
+    })
+    part.addEventListener('touchend', fix)
     h.addEventListener('click', e => {
         for (const target of e.composedPath()) {
             if (target === footer) {
@@ -173,11 +195,12 @@ addEventListener('load', () => {
     }, 1000)
 })
 main.addEventListener('scroll', update)
-addEventListener('resize', () => {
+function fix() {
     const std = Math.round(main.scrollTop / visualViewport.height) * visualViewport.height
     if (Math.abs(std - main.scrollTop) > 1) {
         main.scrollTop = std
     } else {
         update()
     }
-})
+}
+addEventListener('resize', fix)
