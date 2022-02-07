@@ -30,6 +30,7 @@ header form {
     flex-direction: column;
     gap: .5em;
     left: 0;
+    overflow: auto;
     padding: 1em 2em;
     padding-bottom: 4em;
     position: fixed;
@@ -60,8 +61,13 @@ header form h2 .tel {
 }
 
 header form .desc {
+    line-height: 2;
     margin: 1.5em 0;
     text-align: center;
+}
+
+header form>input:not([type="submit"]) {
+    margin-bottom: .5em;
 }
 
 header form>textarea {

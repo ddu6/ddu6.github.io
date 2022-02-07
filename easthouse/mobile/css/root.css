@@ -68,7 +68,7 @@ textarea {
     border: 1px solid lightgray;
     color: inherit;
     font: inherit;
-    padding: .5em;
+    padding: 1em;
 }
 
 input:not([type="submit"]):focus,
@@ -79,6 +79,6 @@ textarea:focus {
 }
 
 textarea {
-    min-height: 7.5em;
+    min-height: 4.5em;
     resize: none;
 }
