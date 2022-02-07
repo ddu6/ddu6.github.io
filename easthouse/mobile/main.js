@@ -4,11 +4,12 @@ const more = document.querySelector('#more')
 const moreCross = more.querySelector('form').querySelector('img')
 const main = document.querySelector('main')
 const grid = document.querySelector('#strength').querySelector('.grid')
-const mask=document.createElement('div')
-const summarys = document.querySelectorAll('#history .summary')
+const historyEle = document.querySelector('#history')
+const path = historyEle.querySelector('.path')
+const mask = document.createElement('div')
+const summarys = path.querySelectorAll('.summary')
 const footer = document.querySelector('footer')
-mask.classList.add('mask')
-
+path.prepend(mask)
 consult.addEventListener('click', e => {
     e.stopPropagation()
     consult.classList.add('show')
@@ -92,7 +93,7 @@ for (const summary of summarys) {
     }
     cover.addEventListener('click', remove)
     close.addEventListener('click', remove)
-    summary.addEventListener('click', e => {
+    point.addEventListener('click', e => {
         e.stopPropagation()
         summary.classList.add('show')
     })
@@ -140,15 +141,11 @@ function update() {
             part.classList.remove('fade')
             tab.style.opacity = '1'
             tab.style.color = 'seagreen'
-            // if (i === 2) {
-            //     const rightPercent = Math.max(0, 100 * part.scrollTop / (part.scrollHeight - visualViewport.height))
-            //     rect.setAttribute('height', `${rightPercent}%`)
-            //     if (rightPercent < 50) {
-            //         part.classList.remove('gray')
-            //     } else {
-            //         part.classList.add('gray')
-            //     }
-            // }
+            if (i === 2) {
+                const {height} = path.getBoundingClientRect()
+                const rate = Math.max(0, part.scrollTop / (part.scrollHeight - visualViewport.height))
+                mask.style.top = `${rate * height}px`
+            }
             continue
         }
         part.classList.add('fade')

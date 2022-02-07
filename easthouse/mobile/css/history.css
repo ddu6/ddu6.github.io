@@ -28,16 +28,18 @@
     position: relative;
 }
 
-#history .path .mask {
+#history .path>:first-child {
+    backdrop-filter: grayscale(1) brightness(2);
     bottom: 0;
-    left: -5px;
+    left: -6px;
     position: absolute;
     top: 0;
-    width: 10px;
+    width: 12px;
 }
 
-#history .path>:first-child {
+#history .path>:nth-child(2) {
     margin-top: -2.8em;
+    z-index: 1;
 }
 
 #history .path>:last-child {
@@ -51,7 +53,7 @@
     margin: .5em 0;
 }
 
-#history .path h2::before {
+#history h2::before {
     content: "";
     display: inline-block;
     width: 6px;
@@ -62,13 +64,13 @@
     margin-right: 22px;
 }
 
-#history .path .summary {
+#history .summary {
     align-items: center;
     display: flex;
     margin: 1em 0;
 }
 
-#history .path .summary .point {
+#history .point {
     cursor: pointer;
 }
 

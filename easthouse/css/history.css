@@ -62,12 +62,12 @@
     width: 15em;
 }
 
-#history .path>.summary {
+#history .summary {
     align-items: center;
     display: flex;
 }
 
-#history .path>.summary>:not(.cover):not(.container) {
+#history .summary>:not(.cover):not(.container) {
     cursor: pointer;
 }
 
