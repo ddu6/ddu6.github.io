@@ -1,0 +1,123 @@
+html {
+    font-size: 16px;
+}
+
+html[data-font-size=medium] {
+    font-size: 17px;
+}
+
+html[data-font-size=large] {
+    font-size: 18px;
+}
+
+@media screen and (max-width:600px) {
+    html {
+        font-size: 15px;
+    }
+
+    html[data-font-size=medium] {
+        font-size: 16px;
+    }
+
+    html[data-font-size=large] {
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    html {
+        font-size: 14px;
+    }
+
+    html[data-font-size=medium] {
+        font-size: 15px;
+    }
+
+    html[data-font-size=large] {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:400px) {
+    html {
+        font-size: 13px;
+    }
+
+    html[data-font-size=medium] {
+        font-size: 14px;
+    }
+
+    html[data-font-size=large] {
+        font-size: 15px;
+    }
+}
+
+html {
+    font-family: sans-serif;
+    line-height: 1.5;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+}
+
+html {
+    scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+a,
+a:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+.button,
+input[type="submit"] {
+    background: black;
+    border: none;
+    color: whitesmoke;
+    cursor: pointer;
+    display: inline-block;
+    font: inherit;
+    padding: .5em 1em;
+}
+
+button:hover,
+.button:hover,
+input[type="submit"]:hover {
+    color: whitesmoke;
+    filter: brightness(1.2);
+}
+
+hr {
+    background: goldenrod;
+    border: 0;
+    height: 2px;
+    width: 100%;
+}
+
+input,
+textarea {
+    border: 1px solid lightgray;
+    color: inherit;
+    font: inherit;
+    padding: 0 .25em;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: seagreen;
+    outline: none;
+}
+
+textarea {
+    min-height: 7.5em;
+    resize: none;
+}

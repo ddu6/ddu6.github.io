@@ -67,22 +67,18 @@ header form {
     top: 0;
 }
 
-header form.show {
+header #consult.show form {
     animation-name: form;
 }
 
-header form.hide {
+header #consult.hide form {
     animation-name: rform;
 }
 
-header form>* {
-    display: block;
-}
-
-header form>:first-child {
-    font-weight: bold;
+header form h2 {
     font-size: 1.3em;
     margin-bottom: 1em;
+    margin-top: 0;
 }
 
 header form>textarea {

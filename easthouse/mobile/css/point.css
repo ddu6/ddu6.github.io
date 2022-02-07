@@ -1,0 +1,57 @@
+@keyframes point {
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.point {
+    box-sizing: border-box;
+    height: 4em;
+    position: relative;
+    width: 4em;
+}
+
+.point>* {
+    box-sizing: border-box;
+    position: absolute;
+}
+
+.point>:not(:last-child) {
+    animation-duration: .75s;
+    animation-iteration-count: infinite;
+    animation-name: point;
+    border: 1px solid lightgray;
+    height: 1em;
+    left: 1.5em;
+    width: 1em;
+    top: 1.5em;
+}
+
+.point>:first-child {
+    border-width: 2px;
+}
+
+.point>:nth-child(2) {
+    border-color: rgb(211 211 211 / .75);
+    height: 1.6em;
+    left: 1.2em;
+    width: 1.6em;
+    top: 1.2em;
+}
+
+.point>:nth-child(3) {
+    border-color: rgb(211 211 211 / .5);
+    height: 2.5em;
+    left: .75em;
+    width: 2.5em;
+    top: .75em;
+}
+
+.point>:last-child {
+    background: seagreen;
+    height: .5em;
+    left: 1.75em;
+    width: .5em;
+    top: 1.75em;
+}

@@ -1,5 +1,4 @@
 const consult = document.querySelector('#consult')
-const form = document.querySelector('form')
 const main = document.querySelector('main')
 const strength = document.querySelector('#strength')
 const grid = document.querySelector('#strength-grid')
@@ -77,13 +76,13 @@ for (const summary of summarys) {
 }
 consult.addEventListener('click', e => {
     e.stopPropagation()
-    form.classList.remove('hide')
-    form.classList.add('show')
+    consult.classList.remove('hide')
+    consult.classList.add('show')
 })
 addEventListener('click', e => {
-    if (form.classList.contains('show')) {
-        form.classList.remove('show')
-        form.classList.add('hide')
+    if (consult.classList.contains('show')) {
+        consult.classList.remove('show')
+        consult.classList.add('hide')
     }
     for (const summary of summarys) {
         summary.classList.remove('show')

@@ -1,0 +1,68 @@
+header {
+    align-items: center;
+    background: rgb(255 255 255 / .5);
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em 2em;
+    justify-content: flex-end;
+    left: 0;
+    padding: 1em 2em;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+
+header>:first-child {
+    flex-grow: 1;
+}
+
+header>:first-child img {
+    height: 2em;
+}
+
+header form {
+    background: white;
+    bottom: 0;
+    box-sizing: border-box;
+    display: none;
+    flex-direction: column;
+    gap: .5em;
+    left: 0;
+    padding: 2em;
+    position: fixed;
+    right: 0em;
+    top: 0;
+}
+
+header #consult.show form {
+    display: flex;
+}
+
+header form>img {
+    align-self: end;
+}
+
+header form h2 {
+    border-bottom: 2px solid goldenrod;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: .5em;
+    text-align: center;
+}
+
+header form h2 .tel {
+    color: seagreen;
+    font-size: .8em;
+}
+
+header form .desc {
+    margin: 1.5em 0;
+    text-align: center;
+}
+
+header form>textarea {
+    flex-grow: 1;
+    margin-bottom: 1.5em;
+}
