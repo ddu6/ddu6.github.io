@@ -6,7 +6,6 @@ main h1 .cover {
     background: white;
     bottom: 0;
     display: none;
-    filter: blur(5px);
     left: 0;
     opacity: .95;
     position: fixed;
