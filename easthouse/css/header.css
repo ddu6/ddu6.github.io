@@ -61,13 +61,12 @@ header form {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    min-width: 28em;
     overflow: auto;
-    padding: 4em;
+    padding: 4em 4vw;
     position: fixed;
-    right: -100vw;
+    right: -30vw;
     top: 0;
-    width: 38vw;
+    width: 30vw;
 }
 
 #consult.show form {
