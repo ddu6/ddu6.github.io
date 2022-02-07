@@ -29,3 +29,8 @@
     font-size: 1.3em;
     font-weight: bold;
 }
+
+#products .container a img {
+    margin-left: .5em;
+    vertical-align: -.1em;
+}

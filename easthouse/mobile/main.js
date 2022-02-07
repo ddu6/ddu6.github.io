@@ -34,14 +34,14 @@ addEventListener('click', e => {
         if (href.length === 1) {
             const part = main.children[0]
             part.scrollTop = 0
-            part.scrollIntoView({behavior: 'smooth', inline: 'start'})
+            part.scrollIntoView({inline: 'start'})
             break
         }
         const id = decodeURIComponent(href.slice(1))
         const result = document.body.querySelector(`[id=${JSON.stringify(id)}]`)
         if (result !== null) {
             result.scrollTop = 0
-            result.scrollIntoView({behavior: 'smooth', inline: 'start'})
+            result.scrollIntoView({inline: 'start'})
         }
         break
     }
@@ -71,14 +71,14 @@ for (let i = 0; i < main.children.length; i++) {
     tab.textContent = h.textContent
     footer.append(tab)
     function handleDelta(delta) {
-        if (i !== 0 && delta < -10 && part.scrollTop < 1) {
+        if (i !== 0 && delta < -10 && part.scrollTop < 40) {
             rest = true
             footer.children[i - 1].click()
             setTimeout(() => {
                 rest = false
             }, 1000)
         }
-        if (i !== main.children.length - 1 && delta > 10 && part.scrollTop + visualViewport.height > part.scrollHeight - 1) {
+        if (i !== main.children.length - 1 && delta > 10 && part.scrollTop + visualViewport.height > part.scrollHeight - 40) {
             rest = true
             footer.children[i + 1].click()
             setTimeout(() => {

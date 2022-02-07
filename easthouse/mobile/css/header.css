@@ -75,6 +75,11 @@ header form>textarea {
     margin-bottom: 1.5em;
 }
 
+header button img {
+    margin-left: 1em;
+    vertical-align: -.1em;
+}
+
 #more form a {
     font-size: 1.8em;
 }
