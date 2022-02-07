@@ -92,21 +92,25 @@ for (let i = 0; i < main.children.length; i++) {
     part.addEventListener('scroll', update)
     let start
     part.addEventListener('touchstart', e => {
-        if (e.targetTouches.length > 0) {
-            const touch = e.targetTouches[0]
+        if (e.touches.length > 0) {
+            const touch = e.touches[0]
             start = touch.clientX + touch.clientY
         }
         fix()
     })
     part.addEventListener('touchmove', e => {
-        if (start === undefined || e.targetTouches.length === 0) {
-            return
-        }
         update()
-        if (rest) {
+        if (rest || start === undefined || e.touches.length === 0) {
             return
         }
-        const touch = e.targetTouches[0]
+        if (i === 3) {
+            for (const target of e.composedPath()) {
+                if (target instanceof HTMLElement && target.classList.contains('container')) {
+                    return
+                }
+            }
+        }
+        const touch = e.touches[0]
         handleDelta(start - touch.clientX - touch.clientY)
     })
     part.addEventListener('touchend', fix)
@@ -142,20 +146,21 @@ for (const summary of summarys) {
     })
 }
 function update() {
+    const {width} = main.getBoundingClientRect()
     for (let i = 0; i < main.children.length; i++) {
         const part = main.children[i]
         const tab = footer.children[i]
         const line = tab.children[0]
         const {left, right} = part.getBoundingClientRect()
-        if (left <= visualViewport.width / 2 && right >= visualViewport.width / 2) {
+        if (left <= width / 2 && right >= width / 2) {
             part.classList.remove('fade')
             tab.style.opacity = '1'
             if (i === 0) {
                 line.style.background = 'goldenrod'
                 continue
             }
-            const percent = 100 * (visualViewport.width + part.scrollLeft) / part.scrollWidth
-            const rightPercent = Math.max(0, 100 * part.scrollLeft / (part.scrollWidth - visualViewport.width))
+            const percent = 100 * (width + part.scrollLeft) / part.scrollWidth
+            const rightPercent = Math.max(0, 100 * part.scrollLeft / (part.scrollWidth - width))
             line.style.background = `linear-gradient(to right, goldenrod ${percent}%, lightgray ${percent}%)`
             if (i === 3) {
                 rect.setAttribute('width', `${rightPercent}%`)
@@ -180,7 +185,8 @@ addEventListener('load', () => {
 })
 main.addEventListener('scroll', update)
 function fix() {
-    const std = Math.round(main.scrollLeft / visualViewport.width) * visualViewport.width
+    const {width} = main.getBoundingClientRect()
+    const std = Math.round(main.scrollLeft / width) * width
     if (Math.abs(std - main.scrollLeft) > 1) {
         main.scrollLeft = std
     } else {

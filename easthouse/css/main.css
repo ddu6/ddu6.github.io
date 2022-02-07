@@ -45,13 +45,10 @@ main>*>div {
 }
 
 main .background {
-    align-items: center;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     bottom: 0;
-    display: flex;
-    justify-content: space-between;
     left: 0;
     position: absolute;
     right: 0;

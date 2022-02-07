@@ -15,9 +15,12 @@ main>:first-child {
 }
 
 main>:first-child>* {
+    align-items: center;
     animation-duration: 1s;
     animation-fill-mode: both;
     animation-name: zoom;
+    display: flex;
+    justify-content: space-between;
 }
 
 main>:first-child.fade>* {

@@ -105,21 +105,25 @@ for (let i = 0; i < main.children.length; i++) {
     part.addEventListener('scroll', update)
     let start
     part.addEventListener('touchstart', e => {
-        if (e.targetTouches.length > 0) {
-            const touch = e.targetTouches[0]
+        if (e.touches.length > 0) {
+            const touch = e.touches[0]
             start = touch.clientX + touch.clientY
         }
         fix()
     })
     part.addEventListener('touchmove', e => {
-        if (start === undefined || e.targetTouches.length === 0) {
-            return
-        }
         update()
-        if (rest) {
+        if (rest || start === undefined || e.touches.length === 0) {
             return
         }
-        const touch = e.targetTouches[0]
+        if (i === 2) {
+            for (const target of e.composedPath()) {
+                if (target instanceof HTMLElement && target.classList.contains('container')) {
+                    return
+                }
+            }
+        }
+        const touch = e.touches[0]
         handleDelta(start - touch.clientX - touch.clientY)
     })
     part.addEventListener('touchend', fix)
@@ -170,16 +174,17 @@ for (const summary of summarys) {
     })
 }
 function update() {
+    const {height} = main.getBoundingClientRect()
     for (let i = 0; i < main.children.length; i++) {
         const part = main.children[i]
         const tab = footer.children[i]
         const {top, bottom} = part.getBoundingClientRect()
-        if (top <= visualViewport.height / 2 && bottom >= visualViewport.height / 2) {
+        if (top <= height / 2 && bottom >= height / 2) {
             part.classList.remove('fade')
             tab.style.color = 'seagreen'
             if (i === 2) {
                 const {height} = path.getBoundingClientRect()
-                const rate = Math.max(0, part.scrollTop / (part.scrollHeight - visualViewport.height))
+                const rate = Math.max(0, part.scrollTop / (part.scrollHeight - height))
                 mask.style.top = `${rate * height}px`
             }
             continue
@@ -196,7 +201,8 @@ addEventListener('load', () => {
 })
 main.addEventListener('scroll', update)
 function fix() {
-    const std = Math.round(main.scrollTop / visualViewport.height) * visualViewport.height
+    const {height} = main.getBoundingClientRect()
+    const std = Math.round(main.scrollTop / height) * height
     if (Math.abs(std - main.scrollTop) > 1) {
         main.scrollTop = std
     } else {
