@@ -10,16 +10,16 @@
 }
 
 #partners>div:last-child>a {
+    align-items: center;
+    background: white;
+    border: 1px solid seagreen;
+    display: flex;
+    height: 2.5em;
+    justify-content: center;
     position: absolute;
     right: 2em;
     top: -1.25em;
-    background: white;
-    border: 1px solid seagreen;
     width: 2.5em;
-    height: 2.5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 #tel {
