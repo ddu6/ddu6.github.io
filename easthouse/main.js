@@ -55,6 +55,22 @@ for (let i = 0; i < main.children.length; i++) {
     line.style.marginBottom = '.5em'
     footer.append(tab)
     tab.prepend(line)
+    function handleDelta(delta) {
+        if (i !== 0 && delta < -10 && part.scrollLeft < 1) {
+            rest = true
+            footer.children[i - 1].click()
+            setTimeout(() => {
+                rest = false
+            }, 1000)
+        }
+        if (i !== main.children.length - 1 && delta > 10 && part.scrollLeft + visualViewport.width > part.scrollWidth - 1) {
+            rest = true
+            footer.children[i + 1].click()
+            setTimeout(() => {
+                rest = false
+            }, 1000)
+        }
+    }
     part.addEventListener('wheel', e => {
         if (i === 3) {
             for (const target of e.composedPath()) {
@@ -70,24 +86,30 @@ for (let i = 0; i < main.children.length; i++) {
         const delta = e.deltaX + e.deltaY
         if (i !== 0) {
             part.scrollBy(delta, 0)
-            if (delta < -10 && part.scrollLeft < 1) {
-                rest = true
-                footer.children[i - 1].click()
-                setTimeout(() => {
-                    rest = false
-                }, 1000)
-            }
         }
-        if (i !== main.children.length - 1 && delta > 10 && part.scrollLeft + visualViewport.width > part.scrollWidth - 1) {
-            rest = true
-            footer.children[i + 1].click()
-            setTimeout(() => {
-                rest = false
-            }, 1000)
-        }
+        handleDelta(delta)
     }, {passive: false})
     part.addEventListener('scroll', update)
-    part.addEventListener('touchmove', update)
+    let start
+    part.addEventListener('touchstart', e => {
+        if (e.targetTouches.length > 0) {
+            const touch = e.targetTouches[0]
+            start = touch.clientX + touch.clientY
+        }
+        fix()
+    })
+    part.addEventListener('touchmove', e => {
+        if (start === undefined || e.targetTouches.length === 0) {
+            return
+        }
+        update()
+        if (rest) {
+            return
+        }
+        const touch = e.targetTouches[0]
+        handleDelta(start - touch.clientX - touch.clientY)
+    })
+    part.addEventListener('touchend', fix)
 }
 grid.addEventListener('pointerover', () => {
     strength.classList.add('dark')
@@ -157,11 +179,12 @@ addEventListener('load', () => {
     }, 1000)
 })
 main.addEventListener('scroll', update)
-addEventListener('resize', () => {
+function fix() {
     const std = Math.round(main.scrollLeft / visualViewport.width) * visualViewport.width
     if (Math.abs(std - main.scrollLeft) > 1) {
         main.scrollLeft = std
     } else {
         update()
     }
-})
+}
+addEventListener('resize', fix)
