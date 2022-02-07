@@ -8,8 +8,44 @@ const historyEle = document.querySelector('#history')
 const path = historyEle.querySelector('.path')
 const mask = document.createElement('div')
 const summarys = path.querySelectorAll('.summary')
+const cover = document.createElement('div')
+cover.classList.add('cover')
 const footer = document.querySelector('footer')
 path.prepend(mask)
+addEventListener('click', e => {
+    consult.classList.remove('show')
+    more.classList.remove('show')
+    for (const item of grid.children) {
+        item.classList.remove('show')
+    }
+    for (const summary of summarys) {
+        summary.classList.remove('show')
+    }
+    // fix #
+    for (const target of e.composedPath()) {
+        if (!(target instanceof HTMLAnchorElement)) {
+            continue
+        }
+        const href = target.getAttribute('href')
+        if (href === null || !href.startsWith('#')) {
+            break
+        }
+        e.preventDefault()
+        if (href.length === 1) {
+            const part = main.children[0]
+            part.scrollTop = 0
+            part.scrollIntoView({behavior: 'smooth', inline: 'start'})
+            break
+        }
+        const id = decodeURIComponent(href.slice(1))
+        const result = document.body.querySelector(`[id=${JSON.stringify(id)}]`)
+        if (result !== null) {
+            result.scrollTop = 0
+            result.scrollIntoView({behavior: 'smooth', inline: 'start'})
+        }
+        break
+    }
+})
 consult.addEventListener('click', e => {
     e.stopPropagation()
     e.preventDefault()
@@ -30,12 +66,15 @@ moreCross.addEventListener('click', e => {
     e.preventDefault()
     more.classList.remove('show')
 })
+const hs = []
 let rest = false
 for (let i = 0; i < main.children.length; i++) {
     const part = main.children[i]
+    const h = part.querySelector('h1')
     const tab = document.createElement('a')
     tab.href = `#${encodeURIComponent(part.id)}`
-    tab.textContent = part.querySelector('h1').textContent
+    tab.textContent = h.textContent
+    hs.push(h)
     footer.append(tab)
     part.addEventListener('wheel', e => {
         if (i === 2) {
@@ -68,6 +107,13 @@ for (let i = 0; i < main.children.length; i++) {
     }, {passive: false})
     part.addEventListener('scroll', update)
     part.addEventListener('touchmove', update)
+    h.addEventListener('click', e => {
+        e.stopPropagation()
+        e.preventDefault()
+        h.classList.toggle('show')
+        h.prepend(cover)
+        h.append(footer)
+    })
 }
 for (const item of grid.children) {
     const cover = document.createElement('div')
@@ -104,38 +150,10 @@ for (const summary of summarys) {
         summary.classList.add('show')
     })
 }
-addEventListener('click', e => {
-    consult.classList.remove('show')
-    more.classList.remove('show')
-    for (const item of grid.children) {
-        item.classList.remove('show')
-    }
-    for (const summary of summarys) {
-        summary.classList.remove('show')
-    }
-    // fix #
-    for (const target of e.composedPath()) {
-        if (!(target instanceof HTMLAnchorElement)) {
-            continue
-        }
-        const href = target.getAttribute('href')
-        if (href === null || !href.startsWith('#')) {
-            break
-        }
-        e.preventDefault()
-        if (href.length === 1) {
-            const part = main.children[0]
-            part.scrollTop = 0
-            part.scrollIntoView({behavior: 'smooth', inline: 'start'})
-            break
-        }
-        const id = decodeURIComponent(href.slice(1))
-        const result = document.body.querySelector(`[id=${JSON.stringify(id)}]`)
-        if (result !== null) {
-            result.scrollTop = 0
-            result.scrollIntoView({behavior: 'smooth', inline: 'start'})
-        }
-        break
+footer.addEventListener('click', e => {
+    e.stopPropagation()
+    for (const h of hs) {
+        h.classList.remove('show')
     }
 })
 function update() {

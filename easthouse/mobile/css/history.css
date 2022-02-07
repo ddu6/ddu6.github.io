@@ -64,7 +64,7 @@
     max-width: 15em;
 }
 
-#history .cover {
+#history .summary .cover {
     background: black;
     bottom: 0;
     display: none;

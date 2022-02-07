@@ -6,6 +6,39 @@ const historyEle = document.querySelector('#history')
 const summarys = historyEle.querySelectorAll('.summary')
 const rect = historyEle.querySelector('#history-mask rect')
 const footer = document.querySelector('footer')
+addEventListener('click', e => {
+    if (consult.classList.contains('show')) {
+        consult.classList.remove('show')
+        consult.classList.add('hide')
+    }
+    for (const summary of summarys) {
+        summary.classList.remove('show')
+    }
+    // fix #
+    for (const target of e.composedPath()) {
+        if (!(target instanceof HTMLAnchorElement)) {
+            continue
+        }
+        const href = target.getAttribute('href')
+        if (href === null || !href.startsWith('#')) {
+            break
+        }
+        e.preventDefault()
+        if (href.length === 1) {
+            const part = main.children[0]
+            part.scrollLeft = 0
+            part.scrollIntoView({behavior: 'smooth', inline: 'start'})
+            break
+        }
+        const id = decodeURIComponent(href.slice(1))
+        const result = document.body.querySelector(`[id=${JSON.stringify(id)}]`)
+        if (result !== null) {
+            result.scrollLeft = 0
+            result.scrollIntoView({behavior: 'smooth', inline: 'start'})
+        }
+        break
+    }
+})
 consult.addEventListener('click', e => {
     e.stopPropagation()
     e.preventDefault()
@@ -88,39 +121,6 @@ for (const summary of summarys) {
         summary.classList.add('show')
     })
 }
-addEventListener('click', e => {
-    if (consult.classList.contains('show')) {
-        consult.classList.remove('show')
-        consult.classList.add('hide')
-    }
-    for (const summary of summarys) {
-        summary.classList.remove('show')
-    }
-    // fix #
-    for (const target of e.composedPath()) {
-        if (!(target instanceof HTMLAnchorElement)) {
-            continue
-        }
-        const href = target.getAttribute('href')
-        if (href === null || !href.startsWith('#')) {
-            break
-        }
-        e.preventDefault()
-        if (href.length === 1) {
-            const part = main.children[0]
-            part.scrollLeft = 0
-            part.scrollIntoView({behavior: 'smooth', inline: 'start'})
-            break
-        }
-        const id = decodeURIComponent(href.slice(1))
-        const result = document.body.querySelector(`[id=${JSON.stringify(id)}]`)
-        if (result !== null) {
-            result.scrollLeft = 0
-            result.scrollIntoView({behavior: 'smooth', inline: 'start'})
-        }
-        break
-    }
-})
 function update() {
     for (let i = 0; i < main.children.length; i++) {
         const part = main.children[i]
