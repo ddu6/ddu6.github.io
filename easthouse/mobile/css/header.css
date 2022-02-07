@@ -36,7 +36,8 @@ header form {
     top: 0;
 }
 
-header #consult.show form {
+#consult.show form,
+#more.show form {
     display: flex;
 }
 
@@ -65,4 +66,16 @@ header form .desc {
 header form>textarea {
     flex-grow: 1;
     margin-bottom: 1.5em;
+}
+
+#more form a {
+    font-size: 2.1em;
+}
+
+#more form hr {
+    background: goldenrod;
+    border: 0;
+    height: 1px;
+    margin: 1.5em 0;
+    width: 100%;
 }

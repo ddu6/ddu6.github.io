@@ -95,13 +95,6 @@ input[type="submit"]:hover {
     filter: brightness(1.2);
 }
 
-hr {
-    background: goldenrod;
-    border: 0;
-    height: 2px;
-    width: 100%;
-}
-
 input,
 textarea {
     border: 1px solid lightgray;

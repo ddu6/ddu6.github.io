@@ -1,5 +1,7 @@
 const consult = document.querySelector('#consult')
 const consultCross = consult.querySelector('form').querySelector('img')
+const more = document.querySelector('#more')
+const moreCross = more.querySelector('form').querySelector('img')
 // const main = document.querySelector('main')
 // const strength = document.querySelector('#strength')
 // const grid = document.querySelector('#strength-grid')
@@ -82,6 +84,14 @@ consult.addEventListener('click', e => {
 consultCross.addEventListener('click', e => {
     e.stopPropagation()
     consult.classList.remove('show')
+})
+more.addEventListener('click', e => {
+    e.stopPropagation()
+    more.classList.add('show')
+})
+moreCross.addEventListener('click', e => {
+    e.stopPropagation()
+    more.classList.remove('show')
 })
 // addEventListener('click', e => {
 //     if (form.classList.contains('show')) {

@@ -67,11 +67,11 @@ header form {
     top: 0;
 }
 
-header #consult.show form {
+#consult.show form {
     animation-name: form;
 }
 
-header #consult.hide form {
+#consult.hide form {
     animation-name: rform;
 }
 
