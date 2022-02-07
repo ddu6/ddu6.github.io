@@ -45,21 +45,6 @@ main>*>div {
     padding: 0 2em;
 }
 
-main h1 {
-    border-bottom: 2px solid goldenrod;
-    color: gray;
-    font-size: 1em;
-    font-weight: normal;
-    letter-spacing: 2em;
-    margin: 1em 0;
-    padding: .5em 0;
-}
-
-main h1+.desc {
-    font-size: 2.8em;
-    font-weight: bold;
-}
-
 main .background {
     align-items: center;
     background-position: center;
@@ -77,4 +62,23 @@ main .background {
 
 main .background>div {
     padding: 0 2em;
+}
+
+main h1 {
+    border-bottom: 2px solid goldenrod;
+    color: gray;
+    font-size: 1em;
+    font-weight: normal;
+    letter-spacing: 2em;
+    margin: 1em 0;
+    padding: .5em 0;
+}
+
+main h1+.desc {
+    font-size: 2.8em;
+    font-weight: bold;
+}
+
+main .details {
+    line-height: 2;
 }

@@ -35,6 +35,17 @@ main>*>div {
     padding: 0 2em;
 }
 
+main .background {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
 main h1 {
     border-bottom: 2px solid goldenrod;
     color: lightgray;
@@ -56,17 +67,6 @@ main h1+.desc {
 
 main .details {
     line-height: 2;
-}
-
-main .background {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
 }
 
 @keyframes zoom {

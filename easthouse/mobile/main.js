@@ -3,11 +3,12 @@ const consultCross = consult.querySelector('form').querySelector('img')
 const more = document.querySelector('#more')
 const moreCross = more.querySelector('form').querySelector('img')
 const main = document.querySelector('main')
-// const strength = document.querySelector('#strength')
-const grid = document.querySelector('#strength-grid')
-// const summarys = document.querySelectorAll('#history .summary')
-// const rect = document.querySelector('#history-rect')
+const grid = document.querySelector('#strength').querySelector('.grid')
+const mask=document.createElement('div')
+const summarys = document.querySelectorAll('#history .summary')
 const footer = document.querySelector('footer')
+mask.classList.add('mask')
+
 consult.addEventListener('click', e => {
     e.stopPropagation()
     consult.classList.add('show')
@@ -72,39 +73,39 @@ for (const item of grid.children) {
         item.classList.toggle('show')
     })
 }
-// for (const summary of summarys) {
-//     const point = summary.querySelector('.point')
-//     const cover = document.createElement('div')
-//     const container = summary.querySelector('.container')
-//     const close = document.createElement('img')
-//     cover.classList.add('cover')
-//     close.src = new URL('icons/close.svg', import.meta.url).href
-//     point.append(document.createElement('div'))
-//     point.append(document.createElement('div'))
-//     point.append(document.createElement('div'))
-//     point.append(document.createElement('div'))
-//     container.before(cover)
-//     container.children[1].prepend(close)
-//     const remove = e => {
-//         e.stopPropagation()
-//         summary.classList.remove('show')
-//     }
-//     cover.addEventListener('click', remove)
-//     close.addEventListener('click', remove)
-//     summary.addEventListener('click', e => {
-//         e.stopPropagation()
-//         summary.classList.add('show')
-//     })
-// }
+for (const summary of summarys) {
+    const point = summary.querySelector('.point')
+    const cover = document.createElement('div')
+    const container = summary.querySelector('.container')
+    const close = document.createElement('img')
+    cover.classList.add('cover')
+    close.src = new URL('icons/close.svg', import.meta.url).href
+    point.append(document.createElement('div'))
+    point.append(document.createElement('div'))
+    point.append(document.createElement('div'))
+    point.append(document.createElement('div'))
+    container.before(cover)
+    container.children[1].prepend(close)
+    const remove = e => {
+        e.stopPropagation()
+        summary.classList.remove('show')
+    }
+    cover.addEventListener('click', remove)
+    close.addEventListener('click', remove)
+    summary.addEventListener('click', e => {
+        e.stopPropagation()
+        summary.classList.add('show')
+    })
+}
 addEventListener('click', e => {
     consult.classList.remove('show')
     more.classList.remove('show')
     for (const item of grid.children) {
         item.classList.remove('show')
     }
-    // for (const summary of summarys) {
-    //     summary.classList.remove('show')
-    // }
+    for (const summary of summarys) {
+        summary.classList.remove('show')
+    }
     // fix #
     for (const target of e.composedPath()) {
         if (!(target instanceof HTMLAnchorElement)) {

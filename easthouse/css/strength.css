@@ -44,13 +44,13 @@
     color: gainsboro;
 }
 
-#strength-grid {
+#strength .grid {
     display: grid;
     gap: 1em;
     grid-template-columns: 18em 18em 18em 18em;
 }
 
-#strength-grid .container {
+#strength .grid .container {
     left: 4em;
     position: fixed;
     overflow: hidden;
@@ -64,42 +64,42 @@
     max-width: 70vw;
 }
 
-#strength-grid>:hover img {
+#strength .grid>:hover img {
     animation-duration: 1s;
     animation-fill-mode: both;
     animation-name: rfade, zoom;
     display: block;
 }
 
-#strength-grid>:nth-child(1)::before {
+#strength .grid>:nth-child(1)::before {
     content: url(../icons/g1.svg);
 }
 
-#strength-grid>:nth-child(2)::before {
+#strength .grid>:nth-child(2)::before {
     content: url(../icons/g2.svg);
 }
 
-#strength-grid>:nth-child(3)::before {
+#strength .grid>:nth-child(3)::before {
     content: url(../icons/g3.svg);
 }
 
-#strength-grid>:nth-child(4)::before {
+#strength .grid>:nth-child(4)::before {
     content: url(../icons/g4.svg);
 }
 
-#strength-grid>:nth-child(5)::before {
+#strength .grid>:nth-child(5)::before {
     content: url(../icons/g5.svg);
 }
 
-#strength-grid>:nth-child(6)::before {
+#strength .grid>:nth-child(6)::before {
     content: url(../icons/g6.svg);
 }
 
-#strength-grid>:nth-child(7)::before {
+#strength .grid>:nth-child(7)::before {
     content: url(../icons/g7.svg);
 }
 
-#strength-grid>:nth-child(8)::before {
+#strength .grid>:nth-child(8)::before {
     content: url(../icons/g8.svg);
 }
 
@@ -112,11 +112,11 @@
     color: gainsboro;
 }
 
-#strength.dark #strength-grid>:not(:hover) {
+#strength.dark #strength .grid>:not(:hover) {
     filter: brightness(.5);
 }
 
-#strength-grid>:hover::before,
-#strength-grid>:hover>:not(.container) {
+#strength .grid>:hover::before,
+#strength .grid>:hover>:not(.container) {
     filter: brightness(10);
 }

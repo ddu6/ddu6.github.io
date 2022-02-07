@@ -1,9 +1,10 @@
 const consult = document.querySelector('#consult')
 const main = document.querySelector('main')
 const strength = document.querySelector('#strength')
-const grid = document.querySelector('#strength-grid')
-const summarys = document.querySelectorAll('#history .summary')
-const rect = document.querySelector('#history-rect')
+const grid = strength.querySelector('.grid')
+const history = document.querySelector('#history')
+const summarys = history.querySelectorAll('.summary')
+const rect = history.querySelector('#history-mask rect')
 const footer = document.querySelector('footer')
 consult.addEventListener('click', e => {
     e.stopPropagation()

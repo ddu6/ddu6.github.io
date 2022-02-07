@@ -3,12 +3,12 @@
     color: whitesmoke;
 }
 
-#strength-grid {
+#strength .grid {
     display: grid;
     gap: 2em;
 }
 
-#strength-grid .cover {
+#strength .grid .cover {
     background: black;
     bottom: 0;
     display: none;
@@ -18,14 +18,14 @@
     top: 0;
 }
 
-#strength-grid>.show .cover {
+#strength .grid>.show .cover {
     animation-duration: .25s;
     animation-fill-mode: both;
     animation-name: rfade;
     display: block;
 }
 
-#strength-grid .container {
+#strength .grid .container {
     display: none;
     height: calc(50vw - 2em);
     left: 2em;
@@ -34,7 +34,7 @@
     top: 6em;
 }
 
-#strength-grid>.show .container {
+#strength .grid>.show .container {
     animation-duration: .25s;
     animation-fill-mode: both;
     animation-name: zoom;
@@ -47,35 +47,35 @@
     width: 100%;
 }
 
-#strength-grid>:nth-child(1)::before {
+#strength .grid>:nth-child(1)::before {
     content: url(../icons/g1.svg);
 }
 
-#strength-grid>:nth-child(2)::before {
+#strength .grid>:nth-child(2)::before {
     content: url(../icons/g2.svg);
 }
 
-#strength-grid>:nth-child(3)::before {
+#strength .grid>:nth-child(3)::before {
     content: url(../icons/g3.svg);
 }
 
-#strength-grid>:nth-child(4)::before {
+#strength .grid>:nth-child(4)::before {
     content: url(../icons/g4.svg);
 }
 
-#strength-grid>:nth-child(5)::before {
+#strength .grid>:nth-child(5)::before {
     content: url(../icons/g5.svg);
 }
 
-#strength-grid>:nth-child(6)::before {
+#strength .grid>:nth-child(6)::before {
     content: url(../icons/g6.svg);
 }
 
-#strength-grid>:nth-child(7)::before {
+#strength .grid>:nth-child(7)::before {
     content: url(../icons/g7.svg);
 }
 
-#strength-grid>:nth-child(8)::before {
+#strength .grid>:nth-child(8)::before {
     content: url(../icons/g8.svg);
 }
 
@@ -84,13 +84,13 @@
     margin: 1em 0;
 }
 
-#strength-grid>.show h2 {
+#strength .grid>.show h2 {
     left: 2em;
     position: fixed;
     top: calc(50vw + 4em);
 }
 
-#strength-grid>.show h2::before {
+#strength .grid>.show h2::before {
     content: url(../icons/up.svg);
     display: block;
     margin: 1em 0;
@@ -100,6 +100,6 @@
     color: gainsboro;
 }
 
-#strength-grid>.show .details {
+#strength .grid>.show .details {
     display: none;
 }
