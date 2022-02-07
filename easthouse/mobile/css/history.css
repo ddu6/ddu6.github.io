@@ -1,0 +1,151 @@
+/* #history .path>svg>path {
+    fill: none;
+    stroke: lightgray;
+    stroke-dasharray: .15 .3;
+    stroke-width: .15;
+}
+
+#history .path>svg>path:last-of-type {
+    stroke: seagreen;
+}
+
+#history .path>svg>rect {
+    fill: white;
+    height: .4px;
+    stroke: seagreen;
+    stroke-width: .1;
+    width: .4px;
+} */
+
+#history .path {
+    border-left: 2px dotted seagreen;
+    display: grid;
+    gap: 2em;
+    margin-left: 2em;
+    margin-bottom: 20em;
+    padding-bottom: 4em;
+    padding-left: 26px;
+    position: relative;
+}
+
+#history .path .mask {
+    bottom: 0;
+    left: -5px;
+    position: absolute;
+    top: 0;
+    width: 10px;
+}
+
+#history .path>:first-child {
+    margin-top: -2.8em;
+}
+
+#history .path>:last-child {
+    left: 26px;
+    position: absolute;
+    bottom: -18em;
+}
+
+#history h2 {
+    font-size: 2.1em;
+    margin: .5em 0;
+}
+
+#history .path h2::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border: 2px solid seagreen;
+    background: white;
+    margin-left: -32px;
+    margin-right: 22px;
+}
+
+#history .path .summary {
+    align-items: center;
+    display: flex;
+    margin: 1em 0;
+}
+
+#history .path .summary .point {
+    cursor: pointer;
+}
+
+#history img {
+    max-height: 15em;
+    max-width: 15em;
+}
+
+#history .cover {
+    background: black;
+    bottom: 0;
+    display: none;
+    left: 0;
+    opacity: .75;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+#history .summary.show .cover {
+    animation-duration: .5s;
+    animation-fill-mode: both;
+    animation-name: rfade;
+    display: block;
+}
+
+#history .container {
+    background: white;
+    color: black;
+    display: none;
+    grid-template-columns: 33.8vw 26.2vw;
+    height: 30vw;
+    left: 20vw;
+    position: fixed;
+    top: calc(50vh - 15vw);
+    width: 60vw;
+    z-index: 1;
+}
+
+#history .summary.show .container {
+    display: grid;
+}
+
+#history .container>:first-child {
+    overflow: hidden;
+    position: relative;
+}
+
+#history .summary.show .container>:first-child>* {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-name: zoom;
+}
+
+#history .container>:last-child {
+    overflow: auto;
+    padding: 2em;
+}
+
+#history .container>:last-child>img {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+}
+
+#history h3 {
+    border-bottom: 1px solid goldenrod;
+    color: gray;
+    font-size: 1em;
+    font-weight: normal;
+    margin: 2em 0;
+    padding-bottom: 1em;
+}
+
+#history h3::after {
+    color: seagreen;
+    content: "EASTHOUSE";
+    display: block;
+    font-size: 1.8em;
+}
