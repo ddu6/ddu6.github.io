@@ -8,6 +8,7 @@ const rect = historyEle.querySelector('#history-mask rect')
 const footer = document.querySelector('footer')
 consult.addEventListener('click', e => {
     e.stopPropagation()
+    e.preventDefault()
     consult.classList.remove('hide')
     consult.classList.add('show')
 })
@@ -83,6 +84,7 @@ for (const summary of summarys) {
     close.addEventListener('click', remove)
     summary.addEventListener('click', e => {
         e.stopPropagation()
+        e.preventDefault()
         summary.classList.add('show')
     })
 }
@@ -150,9 +152,12 @@ function update() {
         line.style.background = 'lightgray'
     }
 }
-setTimeout(() => {
+addEventListener('load', () => {
     update()
-}, 500)
+    setTimeout(() => {
+        update()
+    }, 1000)
+})
 main.addEventListener('scroll', update)
 addEventListener('resize', () => {
     const std = Math.round(main.scrollLeft / visualViewport.width) * visualViewport.width

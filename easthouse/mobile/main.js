@@ -12,18 +12,22 @@ const footer = document.querySelector('footer')
 path.prepend(mask)
 consult.addEventListener('click', e => {
     e.stopPropagation()
+    e.preventDefault()
     consult.classList.add('show')
 })
 consultCross.addEventListener('click', e => {
     e.stopPropagation()
+    e.preventDefault()
     consult.classList.remove('show')
 })
 more.addEventListener('click', e => {
     e.stopPropagation()
+    e.preventDefault()
     more.classList.add('show')
 })
 moreCross.addEventListener('click', e => {
     e.stopPropagation()
+    e.preventDefault()
     more.classList.remove('show')
 })
 let rest = false
@@ -71,6 +75,7 @@ for (const item of grid.children) {
     item.prepend(cover)
     item.addEventListener('click', e => {
         e.stopPropagation()
+        e.preventDefault()
         item.classList.toggle('show')
     })
 }
@@ -95,6 +100,7 @@ for (const summary of summarys) {
     close.addEventListener('click', remove)
     point.addEventListener('click', e => {
         e.stopPropagation()
+        e.preventDefault()
         summary.classList.add('show')
     })
 }
@@ -153,9 +159,12 @@ function update() {
         tab.style.color = 'lightgray'
     }
 }
-setTimeout(() => {
+addEventListener('load', () => {
     update()
-}, 500)
+    setTimeout(() => {
+        update()
+    }, 1000)
+})
 main.addEventListener('scroll', update)
 addEventListener('resize', () => {
     const std = Math.round(main.scrollTop / visualViewport.height) * visualViewport.height

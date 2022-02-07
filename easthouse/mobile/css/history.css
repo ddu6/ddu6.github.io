@@ -97,18 +97,15 @@
 }
 
 #history .summary.show .container {
+    animation-duration: .5s;
+    animation-fill-mode: both;
+    animation-name: zoom;
     display: grid;
 }
 
 #history .container>:first-child {
     overflow: hidden;
     position: relative;
-}
-
-#history .summary.show .container {
-    animation-duration: .5s;
-    animation-fill-mode: both;
-    animation-name: zoom;
 }
 
 #history .container>:last-child {

@@ -27,7 +27,6 @@ main>* {
     justify-content: space-between;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 0 2em;
     position: relative;
     scrollbar-width: none;
     width: 100vw;
@@ -42,7 +41,7 @@ main>*>* {
 }
 
 main>*>div {
-    padding: 0 2em;
+    padding: 0 4em;
 }
 
 main .background {
@@ -54,14 +53,9 @@ main .background {
     display: flex;
     justify-content: space-between;
     left: 0;
-    padding: 0 2em;
     position: absolute;
     right: 0;
     top: 0;
-}
-
-main .background>div {
-    padding: 0 2em;
 }
 
 main h1 {
