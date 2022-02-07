@@ -183,9 +183,9 @@ function update() {
             part.classList.remove('fade')
             tab.style.color = 'seagreen'
             if (i === 2) {
-                const {height} = path.getBoundingClientRect()
+                const {height: pathHeight} = path.getBoundingClientRect()
                 const rate = Math.max(0, part.scrollTop / (part.scrollHeight - height))
-                mask.style.top = `${rate * height}px`
+                mask.style.top = `${rate * pathHeight}px`
             }
             continue
         }
