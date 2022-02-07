@@ -71,14 +71,14 @@ for (let i = 0; i < main.children.length; i++) {
     tab.textContent = h.textContent
     footer.append(tab)
     function handleDelta(delta) {
-        if (i !== 0 && delta < -10 && part.scrollTop < 40) {
+        if (i !== 0 && delta < -10 && part.scrollTop < 2) {
             rest = true
             footer.children[i - 1].click()
             setTimeout(() => {
                 rest = false
             }, 1000)
         }
-        if (i !== main.children.length - 1 && delta > 10 && part.scrollTop + visualViewport.height > part.scrollHeight - 40) {
+        if (i !== main.children.length - 1 && delta > 10 && part.scrollTop + part.clientHeight > part.scrollHeight - 2) {
             rest = true
             footer.children[i + 1].click()
             setTimeout(() => {

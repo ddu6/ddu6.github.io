@@ -56,14 +56,14 @@ for (let i = 0; i < main.children.length; i++) {
     footer.append(tab)
     tab.prepend(line)
     function handleDelta(delta) {
-        if (i !== 0 && delta < -10 && part.scrollLeft < 1) {
+        if (i !== 0 && delta < -10 && part.scrollLeft < 2) {
             rest = true
             footer.children[i - 1].click()
             setTimeout(() => {
                 rest = false
             }, 1000)
         }
-        if (i !== main.children.length - 1 && delta > 10 && part.scrollLeft + visualViewport.width > part.scrollWidth - 1) {
+        if (i !== main.children.length - 1 && delta > 10 && part.scrollLeft + part.clientWidth > part.scrollWidth - 2) {
             rest = true
             footer.children[i + 1].click()
             setTimeout(() => {
