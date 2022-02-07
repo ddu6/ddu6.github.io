@@ -48,22 +48,18 @@ addEventListener('click', e => {
 })
 consult.addEventListener('click', e => {
     e.stopPropagation()
-    e.preventDefault()
     consult.classList.add('show')
 })
 consultCross.addEventListener('click', e => {
     e.stopPropagation()
-    e.preventDefault()
     consult.classList.remove('show')
 })
 more.addEventListener('click', e => {
     e.stopPropagation()
-    e.preventDefault()
     more.classList.add('show')
 })
 moreCross.addEventListener('click', e => {
     e.stopPropagation()
-    e.preventDefault()
     more.classList.remove('show')
 })
 let rest = false
@@ -113,7 +109,6 @@ for (let i = 0; i < main.children.length; i++) {
             }
         }
         e.stopPropagation()
-        e.preventDefault()
         h.classList.toggle('show')
         h.prepend(cover)
         h.append(footer)
@@ -125,7 +120,6 @@ for (const item of grid.children) {
     item.prepend(cover)
     item.addEventListener('click', e => {
         e.stopPropagation()
-        e.preventDefault()
         item.classList.toggle('show')
     })
 }
@@ -150,7 +144,6 @@ for (const summary of summarys) {
     close.addEventListener('click', remove)
     point.addEventListener('click', e => {
         e.stopPropagation()
-        e.preventDefault()
         summary.classList.add('show')
     })
 }

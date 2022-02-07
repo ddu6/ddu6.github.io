@@ -41,7 +41,6 @@ addEventListener('click', e => {
 })
 consult.addEventListener('click', e => {
     e.stopPropagation()
-    e.preventDefault()
     consult.classList.remove('hide')
     consult.classList.add('show')
 })
@@ -117,7 +116,6 @@ for (const summary of summarys) {
     close.addEventListener('click', remove)
     summary.addEventListener('click', e => {
         e.stopPropagation()
-        e.preventDefault()
         summary.classList.add('show')
     })
 }
