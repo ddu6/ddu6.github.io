@@ -53,7 +53,7 @@ input[type="submit"] {
     cursor: pointer;
     display: inline-block;
     font: inherit;
-    padding: .5em 1em;
+    padding: 1em;
 }
 
 button:hover,
@@ -68,12 +68,12 @@ textarea {
     border: 1px solid lightgray;
     color: inherit;
     font: inherit;
-    padding: 0 .25em;
+    padding: .5em;
 }
 
-input:focus,
-select:focus,
+input:not([type="submit"]):focus,
 textarea:focus {
+    background: aliceblue;
     border-color: seagreen;
     outline: none;
 }
