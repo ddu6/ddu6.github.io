@@ -1,15 +1,16 @@
+const logo = document.querySelector('a')
 const consult = document.querySelector('#consult')
 const consultCross = consult.querySelector('form').querySelector('img')
 const more = document.querySelector('#more')
 const moreCross = more.querySelector('form').querySelector('img')
 const main = document.querySelector('main')
+const cover = document.createElement('div')
+cover.classList.add('cover')
 const grid = document.querySelector('#strength').querySelector('.grid')
 const historyEle = document.querySelector('#history')
 const path = historyEle.querySelector('.path')
 const mask = document.createElement('div')
 const summarys = path.querySelectorAll('.summary')
-const cover = document.createElement('div')
-cover.classList.add('cover')
 const footer = document.querySelector('footer')
 path.prepend(mask)
 addEventListener('click', e => {
@@ -44,6 +45,12 @@ addEventListener('click', e => {
             result.scrollIntoView({inline: 'start'})
         }
         break
+    }
+})
+logo.addEventListener('click', e => {
+    const h = footer.closest('h1')
+    if (h !== null) {
+        h.classList.remove('show')
     }
 })
 consult.addEventListener('click', e => {
