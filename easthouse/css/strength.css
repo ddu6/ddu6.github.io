@@ -112,7 +112,7 @@
     color: gainsboro;
 }
 
-#strength.dark #strength .grid>:not(:hover) {
+#strength.dark .grid>:not(:hover) {
     filter: brightness(.5);
 }
 
