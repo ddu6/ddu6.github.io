@@ -113,7 +113,7 @@
 }
 
 #strength.dark .grid>:not(:hover) {
-    filter: brightness(.5);
+    opacity: .25;
 }
 
 #strength .grid>:hover::before,
